@@ -66,6 +66,7 @@
 		<input type="checkbox" id="sortLandingTime" name="sortLandingTime">
 		<br>
         <label for="sortOrder">Sort Order:</label>
+        
         <select id="sortOrder" name="sortOrder">
             <option value="asc">Ascending</option>
             <option value="desc">Descending</option>
@@ -74,7 +75,7 @@
       <h2>Filter Options</h2>
         <label for="numStops">Number of Stops:</label>
     	<input type="text" id="numStops" name="numStops">
-    	
+    	<br>
     	<label for="airline">Enter Airline:</label>
     	<input type="text" id="airline" name="airline" placeholder="Enter airline code (e.g., AA)">
     	<br>
