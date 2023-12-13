@@ -15,6 +15,76 @@
         if ("book".equals(action)) {
             // Processing form submission
             // ... existing code for processing form ...
+            String ticketNumber = request.getParameter("ticketNumber");
+            String seatNumber = request.getParameter("seatNumber");
+            double totalFare = Double.parseDouble(request.getParameter("totalFare"));
+            String classType = request.getParameter("class");
+            String bookingFee = request.getParameter("bookingFee");
+            String passengerName = request.getParameter("passengerName");
+            String firstName = request.getParameter("firstName");
+            String lastName = request.getParameter("lastName");
+            boolean isEconomy = Boolean.parseBoolean(request.getParameter("isEconomy"));
+            //float changeCancelFee = Float.parseFloat(request.getParameter("changeCancelFee"));
+            String flightNumber = request.getParameter("flightNumber");
+            String fromAirport = request.getParameter("fromAirport");
+            String toAirport = request.getParameter("toAirport");
+            String departureDate = request.getParameter("departureDate");
+            String departureTime = request.getParameter("departureTime");
+
+            ApplicationDB db = new ApplicationDB();  
+            Connection con = db.getConnection();
+            ResultSet rs = null;
+            boolean isFlightFull = false;
+
+            try {
+                String insertTicket = "INSERT INTO ticket (TicketNumber, seatNumber, total_fare, class, Passenger_Name, first_name, last_name, isEconomy, changeCancelFee, bookingFee, purchaseDateTime) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, CURRENT_DATE)";
+                PreparedStatement pstmt = con.prepareStatement(insertTicket);
+                pstmt.setString(1, ticketNumber);
+                pstmt.setString(2, seatNumber);
+                pstmt.setDouble(3, totalFare);
+                pstmt.setString(4, classType);
+                pstmt.setString(5, passengerName);
+                pstmt.setString(6, firstName);
+                pstmt.setString(7, lastName);
+                pstmt.setBoolean(8, isEconomy);
+                pstmt.setFloat(9, changeCancelFee);
+                pstmt.setFloat(10, Float.parseFloat(bookingFee));
+                pstmt.executeUpdate();
+
+                String checkFlight = "SELECT is_full FROM flightservices WHERE flightNumber = ?";
+                pstmt = con.prepareStatement(checkFlight);
+                pstmt.setString(1, flightNumber);
+                rs = pstmt.executeQuery();
+                if (rs.next()) {
+                    isFlightFull = rs.getBoolean("is_full");
+                }
+
+                if (!isFlightFull) {
+                    String insertFlight = "INSERT INTO ticketflightassociatedwith (TicketNumber, flightNumber, fromAirport, toAirport, departureDate, departureTime) VALUES (?, ?, ?, ?, ?, ?)";
+                    pstmt = con.prepareStatement(insertFlight);
+                    pstmt.setString(1, ticketNumber);
+                    pstmt.setString(2, flightNumber);
+                    pstmt.setString(3, fromAirport);
+                    pstmt.setString(4, toAirport);
+                    pstmt.setString(5, departureDate);
+                    pstmt.setString(6, departureTime);
+                    pstmt.executeUpdate();
+
+                    out.println("<h2>Flight Booking Confirmed</h2>");
+                } else {
+                    String insertWaitingList = "INSERT INTO waitinglist (accountID, TicketNumber) VALUES (?, ?)";
+                    pstmt = con.prepareStatement(insertWaitingList);
+                    pstmt.setString(1, "Customer1"); // Replace with actual account ID
+                    pstmt.setString(2, ticketNumber);
+                    pstmt.executeUpdate();
+                    out.println("<h2>Flight is full. Added to waiting list.</h2>");
+                }
+            } catch (Exception e) {
+                out.println("Error: " + e.getMessage());
+            } finally {
+                if (rs != null) try { rs.close(); } catch (SQLException e) {}
+                if (con != null) try { con.close(); } catch (SQLException e) {}
+            }
         } else {
             // Retrieve hidden data from the search result page
             String flightNumber = request.getParameter("flightNumber");
