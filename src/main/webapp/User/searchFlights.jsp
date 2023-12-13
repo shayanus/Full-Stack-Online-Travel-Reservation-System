@@ -46,28 +46,31 @@
 		
 	<h2>Sorting Options</h2>
 		<div>
-		    <input type="checkbox" id="priceSortCheckbox" name="priceSortCheckbox">
+		    
 			<label for="priceSort">Sort by Pricing:</label>
+			<input type="checkbox" id="priceSortCheckbox" name="priceSortCheckbox">
 			<select id="priceSort" name="priceSort">
 				<option value="sortedByEconomy">Economy Price</option>
 				<option value="sortedByBusiness">Business Price</option>
 				<option value="sortedByFirstClas">First Class Price</option>
 			</select>
 		</div>
-		
+	
         <label for="sortDuration">Sort by Duration:</label>
 		<input type="checkbox" id="sortDuration" name="sortDuration">
-		
+		<br>
 		<label for="sortTakeoffTime">Sort by Takeoff Time:</label>
 		<input type="checkbox" id="sortTakeoffTime" name="sortTakeoffTime">
-		
+		<br>
 		<label for="sortLandingTime">Sort by Landing Time:</label>
 		<input type="checkbox" id="sortLandingTime" name="sortLandingTime">
+		<br>
         <label for="sortOrder">Sort Order:</label>
         <select id="sortOrder" name="sortOrder">
             <option value="asc">Ascending</option>
             <option value="desc">Descending</option>
         </select>
+        <br>
       <h2>Filter Options</h2>
         <label for="numStops">Number of Stops:</label>
     	<input type="text" id="numStops" name="numStops">
