@@ -3,70 +3,7 @@
 <html>
 <head>
     <title>Delete Customer Rep- Flight Reservation System</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f7f7f7;
-            margin: 20px;
-        }
-
-        h2 {
-            color: #333;
-            text-align: center;
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
-        }
-
-        th, td {
-            border: 1px solid #ddd;
-            padding: 8px;
-            text-align: left;
-        }
-
-        th {
-            background-color: #007BFF;
-            color: #fff;
-        }
-
-        button {
-            background-color: #007BFF;
-            color: #fff;
-            padding: 10px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            margin-bottom: 20px;
-        }
-
-        button:hover {
-            background-color: #0056b3;
-        }
-
-        form {
-            margin-top: 20px;
-        }
-
-        .success-message, .error-message {
-            text-align: center;
-            margin-top: 20px;
-            padding: 10px;
-            border-radius: 4px;
-        }
-
-        .success-message {
-            background-color: #28a745;
-            color: #fff;
-        }
-
-        .error-message {
-            background-color: #dc3545;
-            color: #fff;
-        }
-    </style>
+    
 </head>
 
 <body>

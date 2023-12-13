@@ -8,69 +8,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Flight Booking</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f7f7f7;
-        }
-        .logout-button {
-            position: absolute;
-            right: 20px;
-            top: 20px;
-            padding: 5px 15px;
-            background-color: #d9534f;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-        button {
-            background-color: #007BFF;
-            color: #fff;
-            padding: 10px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            margin-bottom: 10px;
-        }
-        h1 {
-            text-align: center;
-        }
-        form {
-            max-width: 600px;
-            margin: 0 auto;
-        }
-        label {
-            display: block;
-            margin-bottom: 5px;
-        }
-        input {
-            width: 100%;
-            padding: 8px;
-            margin-bottom: 10px;
-            box-sizing: border-box;
-        }
-        input[type="submit"] {
-            background-color: #4caf50;
-            color: white;
-        }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-bottom: 20px;
-        }
-        th, td {
-            border: 1px solid #ddd;
-            padding: 8px;
-            text-align: left;
-        }
-        th {
-            background-color: #4caf50;
-            color: white;
-        }
-    </style>
     <script>
         function populateFields(userId, customerIdentifier) {
             document.getElementById('userId').value = userId;
@@ -135,9 +72,6 @@
             <label for="class">Class:</label>
             <input type="text" id="class" name="class" required><br>
 
-            <label for="bookingFee">Booking Fee:</label>
-            <input type="number" id="bookingFee" name="bookingFee"><br>
-
             <label for="passengerName">Passenger Name:</label>
             <input type="text" id="passengerName" name="passengerName"><br>
 
@@ -149,9 +83,6 @@
 
             <label for="isEconomy">Is Economy (true/false):</label>
             <input type="text" id="isEconomy" name="isEconomy"><br>
-
-            <label for="changeCancelFee">Change/Cancel Fee:</label>
-            <input type="number" id="changeCancelFee" name="changeCancelFee"><br>
 
             <label for="flightNumber">Flight Number:</label>
             <input type="text" id="flightNumber" name="flightNumber" required><br>

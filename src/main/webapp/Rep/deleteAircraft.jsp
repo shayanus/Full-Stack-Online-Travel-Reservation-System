@@ -2,78 +2,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Delete Aircraft - Flight Reservation System</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f7f7f7;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            height: 100vh;
-            margin: 60;
-        }
-
-        .delete-aircraft-container {
-            background-color: #f5f5f5;
-            border: 2px solid #000;
-            border-radius: 5px;
-            box-shadow: 10px 0 10px rgba(0, 0, 0, 0.1);
-            width: 600px;
-            padding: 20px;
-            margin-top: 400px;
-        }
-
-        .delete-aircraft-container h2 {
-            color: #333;
-            text-align: center;
-            margin-bottom: 20px;
-            margin-top: 50px;
-        }
-
-        .delete-aircraft-container table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-bottom: 20px;
-        }
-
-        .delete-aircraft-container th, .delete-aircraft-container td {
-            border: 1px solid #ddd;
-            padding: 8px;
-            text-align: left;
-        }
-
-        .delete-aircraft-container th {
-            background-color: #f2f2f2;
-        }
-
-        .delete-aircraft-container label {
-            display: block;
-            margin-bottom: 8px;
-        }
-
-        .delete-aircraft-container input {
-            width: calc(100% - 16px);
-            padding: 10px;
-            margin-bottom: 15px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-        }
-
-        .delete-aircraft-container button {
-            background-color: #dc3545; /* Red color for delete */
-            color: #fff;
-            padding: 10px 0;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            width: 100%;
-        }
-
-        .delete-aircraft-container button:hover {
-            background-color: #c82333;
-        }
-    </style>
+    <title>Delete Aircraft - Flight Reservation System</title>    
 </head>
 <body>
     <div class="delete-aircraft-container">

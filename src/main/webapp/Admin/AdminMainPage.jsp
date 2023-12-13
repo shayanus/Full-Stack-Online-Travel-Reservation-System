@@ -6,47 +6,7 @@
 <html>
 <head>
     <title>Admin Dashboard - Flight Reservation System</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f7f7f7;
-            margin: 0;
-            padding: 0;
-        }
-        .header {
-            background-color: #333;
-            color: white;
-            padding: 20px;
-            text-align: center;
-        }
-        .container {
-            padding: 20px;
-        }
-        .admin-option {
-            background-color: white;
-            border: 1px solid #ddd;
-            padding: 15px;
-            margin-bottom: 10px;
-            border-radius: 4px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-            transition: box-shadow 0.3s ease-in-out;
-        }
-        .admin-option:hover {
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-        }
-        .admin-option a {
-            text-decoration: none;
-            color: #0056b3;
-            font-weight: bold;
-        }
-        .admin-option ul {
-            list-style-type: none;
-            padding: 0;
-        }
-        .admin-option li {
-            padding: 5px 0;
-        }
-    </style>
+    
 </head>
 <body>
     <div class="header">

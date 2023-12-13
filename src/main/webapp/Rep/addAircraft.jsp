@@ -3,70 +3,7 @@
 <html>
 <head>
     <title>Add Aircraft - Flight Reservation System</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f7f7f7;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            height: 100vh;
-            margin: 60;
-        }
-
-        .add-aircraft-container {
-            background-color: #f5f5f5;
-            border: 2px solid #000;
-            border-radius: 5px;
-            box-shadow: 10px 0 10px rgba(0, 0, 0, 0.1);
-            width: 300px;
-            padding: 50px;
-        }
-
-        .add-aircraft-container h2 {
-            color: #333;
-            text-align: center;
-        }
-
-        .add-aircraft-container label {
-            display: block;
-            margin-bottom: 8px;
-        }
-
-        .add-aircraft-container input {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 15px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-        }
-
-        .add-aircraft-container button {
-            background-color: #007BFF;
-            color: #fff;
-            padding: 10px 0;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            width: 100%;
-        }
-
-        .add-aircraft-container button:hover {
-            background-color: #0056b3;
-        }
-
-        .add-aircraft-container p#success {
-            color: green;
-            text-align: center;
-            margin-top: 15px;
-        }
-
-        .add-aircraft-container p#error {
-            color: red;
-            text-align: center;
-            margin-top: 15px;
-        }
-    </style>
+    
 </head>
 <body>
     <div class="add-aircraft-container">

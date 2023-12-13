@@ -3,78 +3,7 @@
 <html>
 <head>
     <title>Edit Aircraft - Flight Reservation System</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f7f7f7;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            height: 100vh;
-            margin: 60;
-        }
-
-        .edit-aircraft-container {
-            background-color: #f5f5f5;
-            border: 2px solid #000;
-            border-radius: 5px;
-            box-shadow: 10px 0 10px rgba(0, 0, 0, 0.1);
-            width: 600px;
-            padding: 50px;
-            margin-top: 500px;
-        }
-
-        .edit-aircraft-container h2 {
-            color: #333;
-            text-align: center;
-            margin-bottom: 40px; /* Adjusted margin to separate heading and table */
-            margin-top: 100px;
-        }
-
-        .edit-aircraft-container table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-bottom: 40px;
-            margin-top: 20px;
-        }
-
-        .edit-aircraft-container th, .edit-aircraft-container td {
-            border: 1px solid #ddd;
-            padding: 8px;
-            text-align: left;
-        }
-
-        .edit-aircraft-container th {
-            background-color: #f2f2f2;
-        }
-
-        .edit-aircraft-container label {
-            display: block;
-            margin-bottom: 8px;
-        }
-
-        .edit-aircraft-container input {
-            width: calc(100% - 16px);
-            padding: 10px;
-            margin-bottom: 15px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-        }
-
-        .edit-aircraft-container button {
-            background-color: #007BFF;
-            color: #fff;
-            padding: 10px 0;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            width: 100%;
-        }
-
-        .edit-aircraft-container button:hover {
-            background-color: #0056b3;
-        }
-    </style>
+    
 </head>
 <body>
     <div class="edit-aircraft-container">

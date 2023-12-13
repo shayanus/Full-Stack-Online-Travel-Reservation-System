@@ -3,36 +3,7 @@
 <html>
 <head>
     <title>Update Answer - Flight Reservation System</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f7f7f7;
-            margin: 20px;
-        }
-
-        h2 {
-            color: #333;
-            text-align: center;
-        }
-
-        p {
-            text-align: center;
-            font-size: 18px;
-        }
-
-        button {
-            background-color: #007BFF;
-            color: #fff;
-            padding: 10px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-
-        button:hover {
-            background-color: #0056b3;
-        }
-    </style>
+    
 </head>
 
 <body>
