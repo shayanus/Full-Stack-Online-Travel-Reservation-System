@@ -7,7 +7,7 @@
     <div class="header">
         <h1>Welcome, User</h1>
         <!-- Logout button -->
-        <form action="../Logout.jsp" method="post" style="position: absolute; top: 10px; left: 10px;">
+        <form action="../Logout.jsp" method="post">
             <input type="submit" value="Logout" class="logout-button"/>
         </form>
     </div>

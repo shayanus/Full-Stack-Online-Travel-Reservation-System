@@ -5,29 +5,13 @@
 <html>
 <head>
     <title>Past Flight Reservations</title>
-    <style> 
-    .logout-button {
-            position: absolute;
-            right: 20px;
-            top: 20px;
-            padding: 5px 15px;
-            background-color: #d9534f;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-    </style>
 </head>
 <body>
 
-	<button onclick="location.href='UserMainPage.jsp'" style="background-color: #007BFF; color: #fff; padding: 10px; border: none; border-radius: 4px; cursor: pointer;">Back to User Main Page</button>
-    <button onclick="location.href='../Logout.jsp'" style="background-color: #007BFF; color: #fff; padding: 10px; border: none; border-radius: 4px; cursor: pointer;">Log out</button>
+	<button onclick="location.href='UserMainPage.jsp'">Back to User Main Page</button>
+    <button onclick="location.href='../Logout.jsp'">Log out</button>
     
     <h1>Past Flight Reservations</h1>
-    <form action="../Logout.jsp" method="post" style="position: absolute; top: 10px; left: 10px;">
-            <input type="submit" value="Logout" class="logout-button"/>
-        </form>
     <%
         PreparedStatement pstmt = null;
         ResultSet rs = null;
