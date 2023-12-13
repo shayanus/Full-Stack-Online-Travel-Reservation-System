@@ -15,12 +15,13 @@
         if ("book".equals(action)) {
             // Processing form submission
             // ... existing code for processing form ...
-            String ticketNumber = request.getParameter("ticketNumber");
+            
+            //String ticketNumber = request.getParameter("ticketNumber");
             String seatNumber = request.getParameter("seatNumber");
             double totalFare = Double.parseDouble(request.getParameter("totalFare"));
             String classType = request.getParameter("class");
-            String bookingFee = request.getParameter("bookingFee");
-            String passengerName = request.getParameter("passengerName");
+            //String bookingFee = request.getParameter("bookingFee");
+            //String passengerName = request.getParameter("passengerName");
             String firstName = request.getParameter("firstName");
             String lastName = request.getParameter("lastName");
             boolean isEconomy = Boolean.parseBoolean(request.getParameter("isEconomy"));
@@ -29,7 +30,7 @@
             String fromAirport = request.getParameter("fromAirport");
             String toAirport = request.getParameter("toAirport");
             String departureDate = request.getParameter("departureDate");
-            String departureTime = request.getParameter("departureTime");
+            //String departureTime = request.getParameter("departureTime");
 
             ApplicationDB db = new ApplicationDB();  
             Connection con = db.getConnection();
@@ -47,7 +48,7 @@
                 pstmt.setString(6, firstName);
                 pstmt.setString(7, lastName);
                 pstmt.setBoolean(8, isEconomy);
-                pstmt.setFloat(9, changeCancelFee);
+                //pstmt.setFloat(9, changeCancelFee);
                 pstmt.setFloat(10, Float.parseFloat(bookingFee));
                 pstmt.executeUpdate();
 
@@ -77,7 +78,7 @@
                     pstmt.setString(1, "Customer1"); // Replace with actual account ID
                     pstmt.setString(2, ticketNumber);
                     pstmt.executeUpdate();
-                    out.println("<h2>Flight is full. Added to waiting list.</h2>");
+                    out.println("<h2>There are currently no available seats for this flight. \nYou have been added to waiting list, and will be notified if there are any changes.</h2>");
                 }
             } catch (Exception e) {
                 out.println("Error: " + e.getMessage());
