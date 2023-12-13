@@ -33,16 +33,16 @@
             <input type="text" id="lastName" name="lastName"><br>
             
             <label for="flightNumber">Flight Number:</label>
-            <input type="text" id="flightNumber" name="flightNumber" value="<%= flightNumber %>" readonly><br>
+            <input type="text" id="flightNumber" name="flightNumber" value="<%= flightNumber %>"><br>
         
             <label for="origin_airport">Origin Airport:</label>
-            <input type="text" id="origin_airport" name="origin_airport" value="<%= originAirport %>" readonly><br>
+            <input type="text" id="origin_airport" name="origin_airport" value="<%= originAirport %>"><br>
 
             <label for="destination_airport">Destination Airport:</label>
-            <input type="text" id="destination_airport" name="destination_airport" value="<%= destinationAirport %>" readonly><br>
+            <input type="text" id="destination_airport" name="destination_airport" value="<%= destinationAirport %>"><br>
 
             <label for="departure_date">Departure Date:</label>
-            <input type="text" id="departure_date" name="departure_date" value="<%= departure_date %>" readonly><br>
+            <input type="text" id="departure_date" name="departure_date" value="<%= departure_date %>"><br>
 
 
             <!-- Add other necessary fields for user to fill -->
