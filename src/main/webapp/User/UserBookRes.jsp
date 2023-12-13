@@ -24,7 +24,7 @@
             //String passengerName = request.getParameter("passengerName");
             String firstName = request.getParameter("firstName");
             String lastName = request.getParameter("lastName");
-            boolean isEconomy = Boolean.parseBoolean(request.getParameter("isEconomy"));
+            //boolean isEconomy = Boolean.parseBoolean(request.getParameter("isEconomy"));
             //float changeCancelFee = Float.parseFloat(request.getParameter("changeCancelFee"));
             String flightNumber = request.getParameter("flightNumber");
             String fromAirport = request.getParameter("fromAirport");
@@ -38,18 +38,18 @@
             boolean isFlightFull = false;
 
             try {
-                String insertTicket = "INSERT INTO ticket (TicketNumber, seatNumber, total_fare, class, Passenger_Name, first_name, last_name, isEconomy, changeCancelFee, bookingFee, purchaseDateTime) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, CURRENT_DATE)";
+                String insertTicket = "INSERT INTO ticket VALUES (NULL, ?, ?, CURRENT_DATE, ?, ?, ?)";
                 PreparedStatement pstmt = con.prepareStatement(insertTicket);
-                pstmt.setString(1, ticketNumber);
+                //pstmt.setString(1, ticketNumber);
                 pstmt.setString(2, seatNumber);
                 pstmt.setDouble(3, totalFare);
-                pstmt.setString(4, classType);
-                pstmt.setString(5, passengerName);
-                pstmt.setString(6, firstName);
-                pstmt.setString(7, lastName);
-                pstmt.setBoolean(8, isEconomy);
+                //pstmt.setString(4, classType);
+                //pstmt.setString(5, passengerName);
+                pstmt.setString(4, firstName);
+                pstmt.setString(5, lastName);
+                pstmt.setString(6, classType);
                 //pstmt.setFloat(9, changeCancelFee);
-                pstmt.setFloat(10, Float.parseFloat(bookingFee));
+                //pstmt.setFloat(10, Float.parseFloat(bookingFee));
                 pstmt.executeUpdate();
 
                 String checkFlight = "SELECT is_full FROM flightservices WHERE flightNumber = ?";
@@ -63,12 +63,11 @@
                 if (!isFlightFull) {
                     String insertFlight = "INSERT INTO ticketflightassociatedwith (TicketNumber, flightNumber, fromAirport, toAirport, departureDate, departureTime) VALUES (?, ?, ?, ?, ?, ?)";
                     pstmt = con.prepareStatement(insertFlight);
-                    pstmt.setString(1, ticketNumber);
-                    pstmt.setString(2, flightNumber);
-                    pstmt.setString(3, fromAirport);
-                    pstmt.setString(4, toAirport);
-                    pstmt.setString(5, departureDate);
-                    pstmt.setString(6, departureTime);
+                    pstmt.setString(2, seatNumber);
+                    pstmt.setDouble(3, totalFare);
+                    pstmt.setString(4, firstName);
+                    pstmt.setString(5, lastName);
+                    pstmt.setString(6, classType);
                     pstmt.executeUpdate();
 
                     out.println("<h2>Flight Booking Confirmed</h2>");
@@ -76,7 +75,7 @@
                     String insertWaitingList = "INSERT INTO waitinglist (accountID, TicketNumber) VALUES (?, ?)";
                     pstmt = con.prepareStatement(insertWaitingList);
                     pstmt.setString(1, "Customer1"); // Replace with actual account ID
-                    pstmt.setString(2, ticketNumber);
+                    //pstmt.setString(2, ticketNumber);
                     pstmt.executeUpdate();
                     out.println("<h2>There are currently no available seats for this flight. \nYou have been added to waiting list, and will be notified if there are any changes.</h2>");
                 }
