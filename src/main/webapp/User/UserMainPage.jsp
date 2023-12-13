@@ -10,6 +10,10 @@
         <form action="../Logout.jsp" method="post">
             <input type="submit" value="Logout" class="logout-button"/>
         </form>
+
+        <div class="faq-section">
+            <a href="faq.jsp" class="faq-button">Questions and Answers Section</a>
+        </div>
     </div>
 
     <div class="search-section">

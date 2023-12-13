@@ -22,7 +22,7 @@
     
     <h2>Reply to Frequently Asked Questions</h2>
 
-    <table>
+    <table border="1">
         <tr>
             <th>Question</th>
             <th>Answer</th>

@@ -37,6 +37,31 @@
             ResultSet rs = null;
             boolean isFlightFull = false;
 
+            
+            try {
+                String flightNumber = request.getParameter("flightNumber");
+                String findFareQuery = "SELECT " + classType + "_fare FROM flightservices WHERE flightNumber = ?";
+                
+                PreparedStatement pstmt = con.prepareStatement(findFareQuery);
+                pstmt.setString(1, flightNumber);
+                
+                ResultSet rs = pstmt.executeQuery();
+
+                if (rs.next()) {
+                    double fare = rs.getDouble(1); // Assuming the fare is stored as a double in the database
+
+                    // Now you have the fare for the selected class type, you can use it as needed
+                    // For example, you can display it or use it in your booking logic
+                    out.println("<p>Fare for " + classType + " class: $" + fare + "</p>");
+                } else {
+                    out.println("<p>Error: Could not find fare for the selected class type.</p>");
+                }
+            } catch (SQLException e) {
+                out.println("<p>Error: " + e.getMessage() + "</p>");
+            } finally {
+                // Close resources (ResultSet, PreparedStatement, etc.) if needed
+            }
+            
             try {
                 String insertTicket = "INSERT INTO ticket VALUES (NULL, ?, ?, CURRENT_DATE, ?, ?, ?)";
                 PreparedStatement pstmt = con.prepareStatement(insertTicket);
@@ -92,6 +117,11 @@
             String destinationAirport = request.getParameter("destination_airport");
             String departure_date = request.getParameter("departure_date");
             // Display the form
+
+            flightNumber = (flightNumber != null) ? flightNumber : "";
+            originAirport = (originAirport != null) ? originAirport : "";
+            destinationAirport = (destinationAirport != null) ? destinationAirport : "";
+
     %>
         <form method="post">
             <input type="hidden" name="action" value="book">
@@ -112,7 +142,7 @@
             <input type="text" id="destination_airport" name="destination_airport" value="<%= destinationAirport %>"><br>
 
             <label for="departure_date">Departure Date:</label>
-            <input type="text" id="departure_date" name="departure_date" value="<%= departure_date %>"><br>
+            <input type="date" id="departure_date" name="departure_date" value="<%= departure_date %>"><br>
 
 
             <!-- Add other necessary fields for user to fill -->
