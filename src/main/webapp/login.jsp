@@ -11,34 +11,39 @@
     <div class="login-container">
         <h2>Login</h2>
         <form id="loginForm" action="login.jsp" method="post">
-            <label for="username">Username:</label>
-            <input type="text" id="username" name="username" required>
-            
-            <label for="password">Password:</label>
-            <input type="password" id="password" name="password" required>
-
-            <label for="role">Role:</label>
-            <select id="role" name="role">
-                <option value="Customer">Customer</option>
-                <option value="CustomerRepresentative">CustomerRepresentative</option>
-                <option value="SiteAdmin">SiteAdmin</option>
-            </select>
-
-            <button type="submit">Login</button>
+            <table>
+                <tr>
+                    <td><label for="username">Username:</label></td>
+                    <td><input type="text" id="username" name="username" required></td>
+                </tr>
+                <tr>
+                    <td><label for="password">Password:</label></td>
+                    <td><input type="password" id="password" name="password" required></td>
+                </tr>
+                <tr>
+                    <td><label for="role">Role:</label></td>
+                    <td>
+                        <select id="role" name="role">
+                            <option value="Customer">Customer</option>
+                            <option value="CustomerRepresentative">Representative</option>
+                            <option value="SiteAdmin">Admin</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2"><button type="submit">Login</button></td>
+                </tr>
+            </table>
         </form>
         <p id="error">
-            <%= request.getAttribute("errorMessage") %>
+            <%= (request.getAttribute("errorMessage") != null) ? request.getAttribute("errorMessage") : "" %>
         </p>
         <div class="register-button">
             <a href="register.jsp">Register New User</a>
         </div>
     </div>
 
-    <div class="image-container">
-        <img src="airplane_logo.jpg" alt="logo">
-    </div>
 
-    <%-- Server-side validation and processing--%>
     <%
     String UserID = request.getParameter("username");
     String Password = request.getParameter("password");
@@ -70,7 +75,7 @@
                          response.sendRedirect("Admin/AdminMainPage.jsp");
                     }
                 } else {
-                    out.println("Invalid password or Role Selection<a href='login.jsp'>try again</a>");
+                    out.println("Invalid password or role selected, please <a href='login.jsp'>try again</a>");
                 }
             } else {
                 out.println("Username doesn't exist <a href='register.jsp'>Create An Account</a>");

@@ -3,15 +3,12 @@
 <html>
 <head>
     <title>Update Customer Data - Flight Reservation System</title>
-    <style>
-        /* Your existing styles here */
-    </style>
 </head>
 
 <body>
     <!-- Back Button -->
     <button onclick="location.href='AdminMainPage.jsp'">Back to Admin Main Page</button>
-    <button onclick="location.href='../Logout.jsp'" style="background-color: #007BFF; color: #fff; padding: 10px; border: none; border-radius: 4px; cursor: pointer;">Log out</button>
+    <button onclick="location.href='../Logout.jsp'" >Log out</button>
     
     <h2>Update Customer Data</h2>
 

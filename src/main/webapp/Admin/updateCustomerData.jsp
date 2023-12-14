@@ -3,55 +3,12 @@
 <html>
 <head>
     <title>Update Customer Data - Flight Reservation System</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f7f7f7;
-            margin: 20px;
-        }
-
-        h2 {
-            color: #333;
-            text-align: center;
-        }
-
-        button {
-            background-color: #007BFF;
-            color: #fff;
-            padding: 10px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            margin-bottom: 20px;
-        }
-
-        button:hover {
-            background-color: #0056b3;
-        }
-
-        .success-message, .error-message {
-            text-align: center;
-            margin-top: 20px;
-            padding: 10px;
-            border-radius: 4px;
-        }
-
-        .success-message {
-            background-color: #28a745;
-            color: #fff;
-        }
-
-        .error-message {
-            background-color: #dc3545;
-            color: #fff;
-        }
-    </style>
 </head>
 
 <body>
     <!-- Back Button -->
     <button onclick="location.href='AdminMainPage.jsp'">Back to Admin Main Page</button>
-    <button onclick="location.href='../Logout.jsp'" style="background-color: #007BFF; color: #fff; padding: 10px; border: none; border-radius: 4px; cursor: pointer;">Log out</button>
+    <button onclick="location.href='../Logout.jsp'" >Log out</button>
     
     <h2>Update Customer Data</h2>
 

@@ -2,16 +2,16 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Update Customer Rep Data - Flight Reservation System</title>
+    <title>Update Rep Data - Flight Reservation System</title>
     
 </head>
 
 <body>
     <!-- Back Button -->
     <button onclick="location.href='AdminMainPage.jsp'">Back to Admin Main Page</button>
-    <button onclick="location.href='../Logout.jsp'" style="background-color: #007BFF; color: #fff; padding: 10px; border: none; border-radius: 4px; cursor: pointer;">Log out</button>
+    <button onclick="location.href='../Logout.jsp'" >Log out</button>
     
-    <h2>Update Customer Rep Data</h2>
+    <h2>Update Rep Data</h2>
 
     <%
         String userId = request.getParameter("userId");
@@ -42,7 +42,7 @@
                             if (rowsInsertedCustomer > 0) {
                                 %>
                                 <div class="success-message">
-                                    Customer Rep data updated successfully.
+                                    Rep data updated successfully.
                                 </div>
                                 <%
                             } else {

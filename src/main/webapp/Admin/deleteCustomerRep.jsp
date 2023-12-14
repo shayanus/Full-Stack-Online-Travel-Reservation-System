@@ -2,19 +2,19 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Delete Customer Rep- Flight Reservation System</title>
+    <title>Delete Rep- Flight Reservation System</title>
     
 </head>
 
 <body>
     <!-- Back Button -->
     <button onclick="location.href='AdminMainPage.jsp'">Back to Admin Main Page</button>
-    <button onclick="location.href='../Logout.jsp'" style="background-color: #007BFF; color: #fff; padding: 10px; border: none; border-radius: 4px; cursor: pointer;">Log out</button>
+    <button onclick="location.href='../Logout.jsp'">Log out</button>
     
-    <h2>Delete Customer Rep</h2>
+    <h2>Delete Rep</h2>
 
     <form method="post" action="deleteCustomerRep.jsp">
-        <table>
+        <table border="2">
             <tr>
                 <th>User ID</th>
                 <th>Representative Identifier</th>
@@ -37,7 +37,7 @@
                             <td>
                                 <form method="post" action="deleteCustomerRep.jsp">
                                     <input type="hidden" name="UserID" value="<%= rs.getString("UserID") %>">
-                                    <input type="submit" name="delete" value="Delete" onclick="return confirm('Are you sure you want to delete this customer rep?')">
+                                    <input type="submit" name="delete" value="Delete" onclick="return confirm('Are you sure you want to delete this Rep?')">
                                 </form>
                             </td>
                         </tr>
@@ -72,13 +72,13 @@
                     if (rowsAffectedUser > 0) {
                         %>
                         <div class="success-message">
-                            Customer Rep records deleted successfully. Refresh page to see changes.
+                            Rep records deleted successfully. Refresh page to see changes.
                         </div>
                         <%
                     } else {
                         %>
                         <div class="error-message">
-                            Customer Rep record not deleted. An error occurred.
+                            Rep record not deleted. An error occurred.
                         </div>
                         <%
                     }
@@ -100,7 +100,7 @@
         } else {
             %>
             <div class="error-message">
-                UserID parameter not provided.
+                No user selected
             </div>
             <%
         }

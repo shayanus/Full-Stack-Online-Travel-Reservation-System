@@ -20,12 +20,12 @@
 <body>
     <!-- Back Button -->
     <button onclick="location.href='AdminMainPage.jsp'">Back to Admin Main Page</button>
-    <button onclick="location.href='../Logout.jsp'" style="background-color: #007BFF; color: #fff; padding: 10px; border: none; border-radius: 4px; cursor: pointer;">Log out</button>
+    <button onclick="location.href='../Logout.jsp'">Log out</button>
     
     <h2>Edit Customer</h2>
 
     <form method="post" action="editCustomer.jsp">
-        <table>
+        <table border="2">
             <tr>
                 <th>User ID</th>
                 <th>Customer Identifier</th>

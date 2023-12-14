@@ -50,14 +50,14 @@
             <button type="submit">Edit Aircraft</button>
         </form>
         <p id="success">
-            <%= request.getAttribute("successMessage") %>
+            <%= (request.getAttribute("successMessage") != null) ? request.getAttribute("successMessage") : "" %>
         </p>
         <p id="error">
-            <%= request.getAttribute("errorMessage") %>
+            <%= (request.getAttribute("errorMessage") != null) ? request.getAttribute("errorMessage") : "" %>
         </p>
         <!-- Back Button -->
         <button onclick="location.href='CustomerRepMainPage.jsp'">Back to Rep Main Page</button>
-        <button onclick="location.href='../Logout.jsp'" style="background-color: #007BFF; color: #fff; padding: 10px; border: none; border-radius: 4px; cursor: pointer;">Log out</button>
+        <button onclick="location.href='../Logout.jsp'" >Log out</button>
     </div>
 
     <%-- Server-side validation and processing--%>

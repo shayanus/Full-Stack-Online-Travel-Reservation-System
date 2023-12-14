@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Edit Customer Rep- Flight Reservation System</title>
+    <title>Edit Rep- Flight Reservation System</title>
     
     <script>
         function editUser(userId) {
@@ -20,12 +20,12 @@
 <body>
     <!-- Back Button -->
     <button onclick="location.href='AdminMainPage.jsp'">Back to Admin Main Page</button>
-    <button onclick="location.href='../Logout.jsp'" style="background-color: #007BFF; color: #fff; padding: 10px; border: none; border-radius: 4px; cursor: pointer;">Log out</button>
+    <button onclick="location.href='../Logout.jsp'">Log out</button>
     
-    <h2>Edit Customer Rep</h2>
+    <h2>Edit Rep</h2>
 
     <form method="post" action="editCustomerRep.jsp">
-        <table>
+        <table border="2">
             <tr>
                 <th>User ID</th>
                 <th>Representative Identifier</th>

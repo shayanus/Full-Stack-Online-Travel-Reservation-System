@@ -115,38 +115,46 @@
     %>
         <form method="post">
             <input type="hidden" name="action" value="book">
+            <table>
+                <tr>
+                    <td><label for="firstName">First Name:</label></td>
+                    <td><input type="text" id="firstName" name="firstName"></td>
+                </tr>
+                <tr>
+                    <td><label for="lastName">Last Name:</label></td>
+                    <td><input type="text" id="lastName" name="lastName"></td>
+                </tr>
+                <tr>
+                    <td><label for="flightNumber">Flight Number:</label></td>
+                    <td><input type="text" id="flightNumber" name="flightNumber" value="<%= flightNumber %>"></td>
+                </tr>
+                <tr>
+                    <td><label for="origin_airport">Origin Airport:</label></td>
+                    <td><input type="text" id="origin_airport" name="origin_airport" value="<%= originAirport %>"></td>
+                </tr>
+                <tr>
+                    <td><label for="destination_airport">Destination Airport:</label></td>
+                    <td><input type="text" id="destination_airport" name="destination_airport" value="<%= destinationAirport %>"></td>
+                </tr>
+                <tr>
+                    <td><label for="departure_date">Departure Date:</label></td>
+                    <td><input type="date" id="departure_date" name="departure_date" value="<%= departure_date %>"></td>
+                </tr>
+                <tr>
+                    <td><label for="classType">Class Type:</label></td>
+                    <td>
+                        <select id="classType" name="classType">
+                            <option value="economy">Economy</option>
+                            <option value="business">Business</option>
+                            <option value="firstClass">First Class</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2"><input type="submit" value="Book Flight"></td>
+                </tr>
+            </table>
 
-            <label for="firstName">First Name:</label>
-            <input type="text" id="firstName" name="firstName"><br>
-        
-            <label for="lastName">Last Name:</label>
-            <input type="text" id="lastName" name="lastName"><br>
-            
-            <label for="flightNumber">Flight Number:</label>
-            <input type="text" id="flightNumber" name="flightNumber" value="<%= flightNumber %>"><br>
-        
-            <label for="origin_airport">Origin Airport:</label>
-            <input type="text" id="origin_airport" name="origin_airport" value="<%= originAirport %>"><br>
-
-            <label for="destination_airport">Destination Airport:</label>
-            <input type="text" id="destination_airport" name="destination_airport" value="<%= destinationAirport %>"><br>
-
-            <label for="departure_date">Departure Date:</label>
-            <input type="date" id="departure_date" name="departure_date" value="<%= departure_date %>"><br>
-
-
-            <!-- Add other necessary fields for user to fill -->
-            <!-- Example: dropdown for class selection -->
-            <label for="classType">Class Type:</label>
-            <select id="classType" name="classType">
-                <option value="economy">Economy</option>
-                <option value="business">Business</option>
-                <option value="firstClass">First Class</option>
-            </select><br>
-
-            <!-- You can add more fields here if necessary -->
-        
-            <input type="submit" value="Book Flight">
         </form>
     <%
         }

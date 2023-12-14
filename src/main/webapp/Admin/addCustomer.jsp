@@ -19,14 +19,14 @@
             <button type="submit">Add Customer</button>
         </form>
         <p id="success">
-            <%= request.getAttribute("successMessage") %>
+            <%= (request.getAttribute("successMessage") != null) ? request.getAttribute("successMessage") : "" %>
         </p>
         <p id="error">
-            <%= request.getAttribute("errorMessage") %>
+            <%= (request.getAttribute("errorMessage") != null) ? request.getAttribute("errorMessage") : "" %>
         </p>
         <!-- Back Button -->
         <button onclick="location.href='AdminMainPage.jsp'">Back to Admin Main Page</button>
-        <button onclick="location.href='../Logout.jsp'" style="background-color: #007BFF; color: #fff; padding: 10px; border: none; border-radius: 4px; cursor: pointer;">Log out</button>
+        <button onclick="location.href='../Logout.jsp'">Log out</button>
         
     </div>
 
@@ -45,7 +45,7 @@
 
             if (rs.next()) {
                 // Username already exists
-            	out.println("UserID exists, please try another <a href='addCustomer.jsp'>try again</a>");
+            	out.println("Username already exists, please <a href='addCustomer.jsp'>try again</a>");
             } else {
                 // Username doesn't exist, add to the table
                 int x = statement.executeUpdate("INSERT INTO User(UserID, Password, role) VALUES('" +UserID+ "', '" +Password+ "', 'Customer')");

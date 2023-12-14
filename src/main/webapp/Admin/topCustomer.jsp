@@ -7,8 +7,8 @@
     <title>Top Revenue Generating Customer</title>
 </head>
 <body>
-		<button onclick="location.href='AdminMainPage.jsp'"style="background-color: #007BFF; color: #fff; padding: 10px; border: none; border-radius: 4px; cursor: pointer;">Back to Admin Main Page</button>
-        <button onclick="location.href='../Logout.jsp'" style="background-color: #007BFF; color: #fff; padding: 10px; border: none; border-radius: 4px; cursor: pointer;">Log out</button>
+		<button onclick="location.href='AdminMainPage.jsp'">Back to Admin Main Page</button>
+        <button onclick="location.href='../Logout.jsp'" >Log out</button>
     <h1>Customer Generating Most Revenue</h1>
     <% 
         Connection connection = null;

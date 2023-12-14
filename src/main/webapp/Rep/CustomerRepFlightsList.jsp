@@ -8,8 +8,8 @@
     <title>Flight Search</title>
 </head>
 <body>
-		<button onclick="location.href='CustomerRepMainPage.jsp'"style="background-color: #007BFF; color: #fff; padding: 10px; border: none; border-radius: 4px; cursor: pointer;">Back to Rep Main Page</button>
-        <button onclick="location.href='../Logout.jsp'" style="background-color: #007BFF; color: #fff; padding: 10px; border: none; border-radius: 4px; cursor: pointer;">Log out</button>
+		<button onclick="location.href='CustomerRepMainPage.jsp'">Back to Rep Main Page</button>
+        <button onclick="location.href='../Logout.jsp'" >Log out</button>
     <h1>Search Flights for an Airport</h1>
     <form method="post">
         <label for="airportCode">Enter Airport Code:</label>

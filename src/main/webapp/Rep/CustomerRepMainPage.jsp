@@ -5,12 +5,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Customer Representative Dashboard - Flight Reservation System</title>
+    <title>Representative Dashboard - Flight Reservation System</title>
     
 </head>
 <body>
     <div class="header">
-        <h1>Customer Representative Dashboard</h1>
+        <h1>Representative Dashboard</h1>
     </div>
     <button onclick="location.href='../Logout.jsp'">Log out</button>
     

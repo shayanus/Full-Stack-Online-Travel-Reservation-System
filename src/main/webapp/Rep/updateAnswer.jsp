@@ -45,6 +45,6 @@
 
     <!-- Back Button -->
     <button onclick="location.href='CustomerRepMainPage.jsp'">Back to Customer Main Page</button>
-    <button onclick="location.href='../Logout.jsp'" style="background-color: #007BFF; color: #fff; padding: 10px; border: none; border-radius: 4px; cursor: pointer;">Log out</button>
+    <button onclick="location.href='../Logout.jsp'" >Log out</button>
 </body>
 </html>

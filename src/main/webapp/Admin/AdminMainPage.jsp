@@ -12,7 +12,7 @@
     <div class="header">
         <h1>Admin Dashboard</h1>
     </div>
-    <button onclick="location.href='../Logout.jsp'" style="background-color: #007BFF; color: #fff; padding: 10px; border: none; border-radius: 4px; cursor: pointer;">Log out</button>
+    <button onclick="location.href='../Logout.jsp'">Log out</button>
     
     
     <div class="container">
@@ -23,11 +23,11 @@
                 <li><a href="editCustomer.jsp">Edit Customer</a></li>
                 <li><a href="deleteCustomer.jsp">Delete Customer</a></li>
                 
-                <!-- Add/Edit/Delete Customer Representative Buttons -->
-                <li><a href="addCustomerRep.jsp">Add Customer Representative</a></li>
-                <li><a href="editCustomerRep.jsp">Edit Customer Representative</a></li>
-                <li><a href="deleteCustomerRep.jsp">Delete Customer Representative</a></li>
-                <!-- End of Customer Representative Buttons -->
+                <!-- Add/Edit/Delete Representative Buttons -->
+                <li><a href="addCustomerRep.jsp">Add Representative</a></li>
+                <li><a href="editCustomerRep.jsp">Edit Representative</a></li>
+                <li><a href="deleteCustomerRep.jsp">Delete Representative</a></li>
+                <!-- End of Representative Buttons -->
             </ul>
         </div>
         

@@ -16,7 +16,7 @@
     </script>
 </head>
 <body>
-    <button onclick="location.href='CustomerRepMainPage.jsp'">Back to Customer Rep Main Page</button>
+    <button onclick="location.href='CustomerRepMainPage.jsp'">Back to Rep Main Page</button>
     <button onclick="location.href='../Logout.jsp'" class="logout-button">Log out</button>
 
     <div>
