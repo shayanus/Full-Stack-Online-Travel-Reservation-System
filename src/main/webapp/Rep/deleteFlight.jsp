@@ -10,7 +10,6 @@
 
     <h2>Delete Flight</h2>
 
-    <!-- Display all flights -->
     <table border="1">
         <tr>
             <th>Flight Number</th>
@@ -28,7 +27,6 @@
             <th>Number of Stops</th>
             <th>Flight Type</th>
             <th>Duration</th>
-            <!-- Add more header columns as needed -->
         </tr>
 
         <%
@@ -56,7 +54,6 @@
                         <td><%= rs.getInt("number_of_stops") %></td>
                         <td><%= rs.getString("flight_type") %></td>
                         <td><%= rs.getString("duration") %></td>
-                        <!-- Add more data columns as needed -->
                     </tr>
         <%
                 }
@@ -66,7 +63,6 @@
         %>
     </table>
 
-    <!-- Delete Form -->
     <h2>Delete Flight by Flight Number</h2>
     <form method="post" action="deleteFlight.jsp">
         <label for="flightNumber">Enter Flight Number to Delete:</label>
@@ -74,7 +70,6 @@
         <button type="submit">Delete Flight</button>
     </form>
 
-    <!-- Process Delete -->
     <%
         String flightNumberToDelete = request.getParameter("flightNumber");
         if (flightNumberToDelete != null && !flightNumberToDelete.isEmpty()) {

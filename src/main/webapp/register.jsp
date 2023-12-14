@@ -74,7 +74,7 @@
             			
             		}
             		
-            		session.setAttribute("user", UserID); // the username will be stored in the session
+            		session.setAttribute("user", UserID); 
                     response.sendRedirect("LoginSuccess.jsp");
             	}
             	

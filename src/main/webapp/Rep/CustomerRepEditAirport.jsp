@@ -11,13 +11,11 @@
     
 <body>
 <!-- Back Button -->
-        <button onclick="location.href='CustomerRepMainPage.jsp'">Back to Rep Main Page</button>
-        <button onclick="location.href='../Logout.jsp'" >Log out</button>
+        <button onclick="location.href='CustomerRepMainPage.jsp'"style="background-color: #007BFF; color: #fff; padding: 10px; border: none; border-radius: 4px; cursor: pointer;">Back to Rep Main Page</button>
+        <button onclick="location.href='../Logout.jsp'" style="background-color: #007BFF; color: #fff; padding: 10px; border: none; border-radius: 4px; cursor: pointer;">Log out</button>
     <h2>Data from airport</h2>
-    <!-- Information Line -->
     <p>Please use Airport 3 letter codes as input entries. For Example: EWR, JFK, LAX</p>
     
-    <!-- Add Form -->
     <form method="post">
         <label for="addInput">Add:</label>
         <input type="text" id="addInput" name="addInput">
@@ -25,7 +23,6 @@
         <input type="submit" value="Add">
     </form>
     
-    <!-- Edit Form -->
     <form method="post">
         <label for="editInputOld">Edit:</label>
         <input type="text" id="editInputOld" name="editInputOld">
@@ -36,7 +33,6 @@
     </form>
    
 
-    <!-- Delete Form -->
     <form method="post">
         <label for="deleteInput">Delete:</label>
         <input type="text" id="deleteInput" name="deleteInput">
@@ -44,7 +40,6 @@
         <input type="submit" value="Delete">
     </form>
     
-    <!-- Show Form -->
     <form method="post">
         <label for="showInput">Show:</label>
         <input type="hidden" name="formAction" value="show">
@@ -54,10 +49,8 @@
     <% 
         if ("add".equals(request.getParameter("formAction"))) {
         	String error = null;
-            // JSP code to handle Add form submission
-            // Retrieve the input value and process it
+            
             String addInput = request.getParameter("addInput");
-            // Database insertion logic here
             ApplicationDB db = new ApplicationDB();	
             Connection con = db.getConnection();	
             Statement stmt = con.createStatement();
@@ -79,11 +72,9 @@
     
     <% 
         if ("edit".equals(request.getParameter("formAction"))) {
-            // JSP code to handle Edit form submission
-            // Retrieve the input values and process them
+            
             String editInputOld = request.getParameter("editInputOld");
             String editInputNew = request.getParameter("editInputNew");
-            // Database update logic here
             ApplicationDB db = new ApplicationDB();	
             Connection con = db.getConnection();	
             Statement stmt = con.createStatement();
@@ -110,11 +101,9 @@
     
     <% 
         if ("delete".equals(request.getParameter("formAction"))) {
-            // JSP code to handle Delete form submission
-            // Retrieve the input value and process it
+            
             String error = null;
             String deleteInput = request.getParameter("deleteInput");
-            // Database deletion logic here
             ApplicationDB db = new ApplicationDB();	
             Connection con = db.getConnection();	
             Statement stmt = con.createStatement();

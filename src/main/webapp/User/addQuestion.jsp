@@ -13,7 +13,6 @@
             Connection connection = db.getConnection();
             PreparedStatement statement = connection.prepareStatement("INSERT INTO FAQ (question, answer) VALUES (?, ?)");
 
-            // Set the question (you can set a default or empty answer if needed)
             statement.setString(1, newQuestion);
             statement.setString(2, "A User Representative will get back to you soon.");
 

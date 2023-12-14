@@ -55,12 +55,10 @@
         <p id="error">
             <%= (request.getAttribute("errorMessage") != null) ? request.getAttribute("errorMessage") : "" %>
         </p>
-        <!-- Back Button -->
         <button onclick="location.href='CustomerRepMainPage.jsp'">Back to Rep Main Page</button>
         <button onclick="location.href='../Logout.jsp'" >Log out</button>
     </div>
 
-    <%-- Server-side validation and processing--%>
     <%
         String selectedAircraft = request.getParameter("selectedAircraft");
         String newSeats = request.getParameter("newSeats");
@@ -75,11 +73,9 @@
                 ResultSet rs = statement.executeQuery("SELECT * FROM aircraft WHERE AircraftID='" + selectedAircraft + "'");
 
                 if (rs.next()) {
-                    // Aircraft ID exists, update the details
                     int x = statement.executeUpdate("UPDATE aircraft SET seats = '" + newSeats + "', operation_days = '" + newOperationDays + "' WHERE AircraftID = '" + selectedAircraft + "'");
                     out.println("Aircraft Updated");
                 } else {
-                    // Aircraft ID doesn't exist
                     out.println("Aircraft ID does not exist, please try another <a href='editAircraft.jsp'>try again</a>");
                 }
             } catch (SQLException e) {

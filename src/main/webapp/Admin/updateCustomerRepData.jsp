@@ -7,7 +7,6 @@
 </head>
 
 <body>
-    <!-- Back Button -->
     <button onclick="location.href='AdminMainPage.jsp'">Back to Admin Main Page</button>
     <button onclick="location.href='../Logout.jsp'" >Log out</button>
     
@@ -24,19 +23,15 @@
                 Connection connection = db.getConnection();
                 Statement statement = connection.createStatement();
 
-                // Delete existing record from Customer table
                 int rowsDeletedCustomer = statement.executeUpdate("DELETE FROM CustomerRepresentative WHERE UserID='" + userId + "'");
 
                 if (rowsDeletedCustomer > 0) {
-                    // Delete existing record from User table
                     int rowsDeletedUser = statement.executeUpdate("DELETE FROM User WHERE UserID='" + userId + "'");
 
                     if (rowsDeletedUser > 0) {
-                        // Insert new record into User table
                         int rowsInsertedUser = statement.executeUpdate("INSERT INTO User (UserID, Password, role) VALUES ('" + newUsername + "', '" + newPassword + "', 'Customer')");
 
                         if (rowsInsertedUser > 0) {
-                            // Insert new record into Customer table
                             int rowsInsertedCustomer = statement.executeUpdate("INSERT INTO CustomerRepresentative (UserID, RepresentativeIdentifier) VALUES ('" + newUsername + "', '" + newUsername + "')");
 
                             if (rowsInsertedCustomer > 0) {

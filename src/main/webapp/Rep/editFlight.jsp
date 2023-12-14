@@ -10,7 +10,6 @@
 
     <h2>Edit Flight</h2>
 
-    <!-- Display all flights -->
     <form method="post" action="editFlight.jsp">
         <label for="flightNumber">Select Flight Number to Edit:</label>
         <select id="flightNumber" name="flightNumber">
@@ -48,7 +47,6 @@
             <option value="departure_times">Departure Times</option>
             <option value="arrival_date">Arrival Date</option>
             <option value="arrival_times">Arrival Times</option>
-            <!-- Add more attributes as needed -->
         </select>
         <br>
 
@@ -59,7 +57,6 @@
         <button type="submit">Edit Flight</button>
     </form>
 
-    <!-- Process Edit -->
     <%
         String flightNumberToEdit = request.getParameter("flightNumber");
         String attributeToEdit = request.getParameter("attribute");

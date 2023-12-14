@@ -56,10 +56,8 @@
         <h1>Book Your Flight</h1>
         <form method="post">
             <input type="hidden" name="action" value="book">
-            <!-- Hidden field to store the selected User ID -->
             <input type="hidden" id="userId" name="userId">
 
-            <!-- Fields for the 'ticket' table -->
             <label for="ticketNumber">Ticket Number:</label>
             <input type="text" id="ticketNumber" name="ticketNumber" required><br>
 
@@ -103,12 +101,10 @@
         </form>
     </div>
 
-    <%-- Java code to process form submission --%>
     <%
         String action = request.getParameter("action");
 
         if ("book".equals(action)) {
-            // Processing form submission
             String userId = request.getParameter("userId");
             String customerIdentifier = request.getParameter("customerIdentifier");
             String ticketNumber = request.getParameter("ticketNumber");
@@ -120,7 +116,7 @@
             String toAirport = request.getParameter("toAirport");
             String departureDate = request.getParameter("departureDate");
             String departureTime = request.getParameter("departureTime");
-            String passengerName = request.getParameter("passengerName"); // Example, adjust as per your form data
+            String passengerName = request.getParameter("passengerName"); 
             String firstName = request.getParameter("firstName");
             String lastName = request.getParameter("lastName");
             boolean isEconomy = Boolean.parseBoolean(request.getParameter("isEconomy"));
@@ -148,7 +144,6 @@
                     pstmt.executeUpdate();
                 }
 
-                // Insert into ticketflightassociatedwith table
                 String insertFlight = "INSERT INTO ticketflightassociatedwith (TicketNumber, flightNumber, fromAirport, toAirport, departureDate, departureTime) VALUES (?, ?, ?, ?, ?, ?)";
                 try (PreparedStatement pstmt = con.prepareStatement(insertFlight)) {
                     pstmt.setString(1, ticketNumber);

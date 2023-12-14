@@ -6,19 +6,7 @@
 <html>
 <head>
     <title>Flight Booking</title>
-    <style> 
-    .logout-button {
-            position: absolute;
-            right: 20px;
-            top: 20px;
-            padding: 5px 15px;
-            background-color: #d9534f;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-    </style>
+    
 </head>
 <body>
         <button onclick="location.href='CustomerMainPage.jsp'">Back to Customer Main Page</button>
@@ -96,13 +84,10 @@
                 pstmt.setString(1, ticketNumber);
                 pstmt.setString(2, seatNumber);
                 pstmt.setDouble(3, totalFare);
-                //pstmt.setString(4, classType);
-                //pstmt.setString(5, passengerName);
+                
                 pstmt.setString(4, firstName);
                 pstmt.setString(5, lastName);
-                //pstmt.setBoolean(8, isEconomy);
-                //pstmt.setFloat(9, changeCancelFee);
-                //pstmt.setFloat(10, Float.parseFloat(bookingFee));
+               
                 pstmt.executeUpdate();
 
                 String checkFlight = "SELECT is_full FROM flightservices WHERE flightNumber = ?";
@@ -128,7 +113,7 @@
                 } else {
                     String insertWaitingList = "INSERT INTO waitinglist (accountID, TicketNumber) VALUES (?, ?)";
                     pstmt = con.prepareStatement(insertWaitingList);
-                    pstmt.setString(1, "Customer1"); // Replace with actual account ID
+                    pstmt.setString(1, "Customer1"); 
                     pstmt.setString(2, ticketNumber);
                     pstmt.executeUpdate();
                     out.println("<h2>Flight is full. Added to waiting list.</h2>");

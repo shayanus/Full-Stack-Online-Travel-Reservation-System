@@ -26,12 +26,10 @@
         <p id="error">
             <%= (request.getAttribute("errorMessage") != null) ? request.getAttribute("errorMessage") : "" %>
         </p>
-        <!-- Back Button -->
         <button onclick="location.href='CustomerRepMainPage.jsp'">Back to Rep Main Page</button>
         <button onclick="location.href='../Logout.jsp'">Log out</button>
     </div>
 
-    <%-- Server-side validation and processing--%>
     <%
         String aircraftID = request.getParameter("aircraftID");
         String seats = request.getParameter("seats");
@@ -46,10 +44,8 @@
                 ResultSet rs = statement.executeQuery("SELECT * FROM Aircraft WHERE AircraftID='" + aircraftID + "'");
 
                 if (rs.next()) {
-                    // Aircraft ID already exists
                     out.println("Aircraft ID exists, please try another <a href='addAircraft.jsp'>try again</a>");
                 } else {
-                    // Aircraft ID doesn't exist, add to the table
                     int x = statement.executeUpdate("INSERT INTO aircraft(AircraftID, seats, operation_days) VALUES('" + aircraftID + "', '" + seats + "', '" + operationDays + "')");
                     out.println("Aircraft Added");
                 }

@@ -54,7 +54,6 @@
             } catch(Exception e) {
                 e.printStackTrace();
             } finally {
-                // Close resources
                 try { if (rs != null) rs.close(); } catch (Exception e) {};
                 try { if (pstmt != null) pstmt.close(); } catch (Exception e) {};
                 try { if (conn != null) conn.close(); } catch (Exception e) {};

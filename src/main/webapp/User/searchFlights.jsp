@@ -7,13 +7,11 @@
 </head>
 
 <body>
-    <!-- Back Button -->
     <button onclick="location.href='UserMainPage.jsp'">Back to User Main Page</button>
     <button onclick="location.href='../Logout.jsp'">Log out</button>
     
     <h2>Search Flights</h2>
 
-    <!-- Search Form -->
     <form method="post" action="FlightSearchServlet.jsp">
         <label for="startAirport">Start Airport:</label>
         <input type="text" id="startAirport" name="startAirport" required>
@@ -30,17 +28,14 @@
         </label>
 		<br>
 		<br>
-        <!-- Date fields for one-way or departure date for round-trip -->
         <label for="departureDate">Departure Date:</label>
         <input type="date" id="departureDate" name="departureDate" required>
 		<br>
-        <!-- Date field for return date for round-trip -->
         <div id="returnDateDiv" style="display: none;">
             <label for="returnDate">Return Date:</label>
             <input type="date" id="returnDate" name="returnDate">
         </div>
         <br>
-        <!-- Checkbox for flexibility -->
     	<label for="isFlexible">Flexible Dates:</label>
     	<input type="checkbox" id="isFlexible" name="isFlexible">
 		
@@ -94,7 +89,6 @@
     </form>
 
 <script>
-    // JavaScript to toggle the display of the return date field
     document.querySelectorAll('input[name="flightType"]').forEach(input => {
         input.addEventListener('change', function() {
             document.getElementById('returnDateDiv').style.display = this.value === 'roundTrip' ? 'block' : 'none';

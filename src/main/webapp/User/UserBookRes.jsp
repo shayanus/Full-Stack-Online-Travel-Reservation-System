@@ -22,24 +22,18 @@
         }
 
         if ("book".equals(action)) {
-            // Processing form submission
-            // ... existing code for processing form ...
             
-            //String ticketNumber = request.getParameter("ticketNumber");
             String seatNumber = request.getParameter("seatNumber");
             double totalFare = 20.5;
             String classType = request.getParameter("classType");
-            //String bookingFee = request.getParameter("bookingFee");
-            //String passengerName = request.getParameter("passengerName");
+            
             String firstName = request.getParameter("firstName");
             String lastName = request.getParameter("lastName");
-            //boolean isEconomy = Boolean.parseBoolean(request.getParameter("isEconomy"));
-            //float changeCancelFee = Float.parseFloat(request.getParameter("changeCancelFee"));
+            
             String flightNumber = request.getParameter("flightNumber");
             String fromAirport = request.getParameter("fromAirport");
             String toAirport = request.getParameter("toAirport");
             String departureDate = request.getParameter("departureDate");
-            //String departureTime = request.getParameter("departureTime");
 
             ApplicationDB db = new ApplicationDB();  
             Connection con = db.getConnection();
@@ -89,8 +83,7 @@
                 } else {
                     String insertWaitingList = "INSERT INTO waitinglist (accountID, TicketNumber) VALUES (?, ?)";
                     pstmt = con.prepareStatement(insertWaitingList);
-                    pstmt.setString(1, "Customer1"); // Replace with actual account ID
-                    //pstmt.setString(2, ticketNumber);
+                    pstmt.setString(1, "Customer1"); 
                     pstmt.executeUpdate();
                     out.println("<h2>There are currently no available seats for this flight. \nYou have been added to waiting list, and will be notified if there are any changes.</h2>");
                 }
@@ -101,12 +94,10 @@
                 if (con != null) try { con.close(); } catch (SQLException e) {}
             }
         } else {
-            // Retrieve hidden data from the search result page
             String flightNumber = request.getParameter("flightNumber");
             String originAirport = request.getParameter("origin_airport");
             String destinationAirport = request.getParameter("destination_airport");
             String departure_date = request.getParameter("departure_date");
-            // Display the form
 
             flightNumber = (flightNumber != null) ? flightNumber : "";
             originAirport = (originAirport != null) ? originAirport : "";
@@ -115,46 +106,38 @@
     %>
         <form method="post">
             <input type="hidden" name="action" value="book">
-            <table>
-                <tr>
-                    <td><label for="firstName">First Name:</label></td>
-                    <td><input type="text" id="firstName" name="firstName"></td>
-                </tr>
-                <tr>
-                    <td><label for="lastName">Last Name:</label></td>
-                    <td><input type="text" id="lastName" name="lastName"></td>
-                </tr>
-                <tr>
-                    <td><label for="flightNumber">Flight Number:</label></td>
-                    <td><input type="text" id="flightNumber" name="flightNumber" value="<%= flightNumber %>"></td>
-                </tr>
-                <tr>
-                    <td><label for="origin_airport">Origin Airport:</label></td>
-                    <td><input type="text" id="origin_airport" name="origin_airport" value="<%= originAirport %>"></td>
-                </tr>
-                <tr>
-                    <td><label for="destination_airport">Destination Airport:</label></td>
-                    <td><input type="text" id="destination_airport" name="destination_airport" value="<%= destinationAirport %>"></td>
-                </tr>
-                <tr>
-                    <td><label for="departure_date">Departure Date:</label></td>
-                    <td><input type="date" id="departure_date" name="departure_date" value="<%= departure_date %>"></td>
-                </tr>
-                <tr>
-                    <td><label for="classType">Class Type:</label></td>
-                    <td>
-                        <select id="classType" name="classType">
-                            <option value="economy">Economy</option>
-                            <option value="business">Business</option>
-                            <option value="firstClass">First Class</option>
-                        </select>
-                    </td>
-                </tr>
-                <tr>
-                    <td colspan="2"><input type="submit" value="Book Flight"></td>
-                </tr>
-            </table>
 
+            <label for="firstName">First Name:</label>
+            <input type="text" id="firstName" name="firstName"><br>
+        
+            <label for="lastName">Last Name:</label>
+            <input type="text" id="lastName" name="lastName"><br>
+            
+            <label for="flightNumber">Flight Number:</label>
+            <input type="text" id="flightNumber" name="flightNumber" value="<%= flightNumber %>"><br>
+        
+            <label for="origin_airport">Origin Airport:</label>
+            <input type="text" id="origin_airport" name="origin_airport" value="<%= originAirport %>"><br>
+
+            <label for="destination_airport">Destination Airport:</label>
+            <input type="text" id="destination_airport" name="destination_airport" value="<%= destinationAirport %>"><br>
+
+            <label for="departure_date">Departure Date:</label>
+            <input type="date" id="departure_date" name="departure_date" value="<%= departure_date %>"><br>
+
+
+            <!-- Add other necessary fields for user to fill -->
+            <!-- Example: dropdown for class selection -->
+            <label for="classType">Class Type:</label>
+            <select id="classType" name="classType">
+                <option value="economy">Economy</option>
+                <option value="business">Business</option>
+                <option value="firstClass">First Class</option>
+            </select><br>
+
+            <!-- You can add more fields here if necessary -->
+        
+            <input type="submit" value="Book Flight">
         </form>
     <%
         }

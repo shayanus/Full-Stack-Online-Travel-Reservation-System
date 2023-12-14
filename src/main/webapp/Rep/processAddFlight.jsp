@@ -11,7 +11,6 @@
     <%@ page import="javax.servlet.*,javax.servlet.http.*"%>
 
     <%
-        // Retrieve parameters from the form
         String flightNumber = request.getParameter("flightNumber");
         String aircraftID = request.getParameter("AircraftID");
         String originAirport = request.getParameter("originAirport");
@@ -32,24 +31,20 @@
             Connection connection = db.getConnection();
             Statement statement = connection.createStatement();
 
-            // Check if Flight Number already exists
             ResultSet rs = statement.executeQuery("SELECT * FROM flightservices WHERE flightNumber='" + flightNumber + "'");
 
             if (rs.next()) {
-                // Flight Number already exists
     %>
                 <p>Flight Number exists, please <a href='addFlight.jsp'>try again</a>.</p>
     <%
             } else {
-                // Flight Number doesn't exist, add to the table
-                // Calculate duration (assuming departureTimes and arrivalTimes are in the format "HH:mm:ss")
+                
                 SimpleDateFormat format = new SimpleDateFormat("HH:mm:ss");
                 Date departureTime = format.parse(departureTimes);
                 Date arrivalTime = format.parse(arrivalTimes);
                 long durationMillis = arrivalTime.getTime() - departureTime.getTime();
                 Time duration = new Time(durationMillis);
 
-                // Modify the query to include other columns and their values
                 int x = statement.executeUpdate("INSERT INTO flightservices(flightNumber, AircraftID, origin_airport, destination_airport, " +
                         "economy_fare, business_fare, first_class_fare, airline, number_of_stops, flight_type, " +
                         "departure_date, departure_times, arrival_date, arrival_times, duration) " +

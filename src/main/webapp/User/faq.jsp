@@ -8,7 +8,6 @@
             var newQuestion = prompt("Enter your question:");
 
             if (newQuestion !== null) {
-                // Assuming your addQuestion.jsp is in the same directory
                 window.location.href = "addQuestion.jsp?newQuestion=" + encodeURIComponent(newQuestion);
             }
         }
@@ -17,7 +16,7 @@
             var searchTerm = document.getElementById("searchTerm").value.toLowerCase();
             var rows = document.querySelectorAll("table tr");
 
-            for (var i = 1; i < rows.length; i++) { // start from 1 to skip the header row
+            for (var i = 1; i < rows.length; i++) { 
                 var questionText = rows[i].cells[0].innerText.toLowerCase();
                 var answerText = rows[i].cells[1].innerText.toLowerCase();
 
@@ -32,13 +31,11 @@
 </head>
 
 <body>
-    <!-- Back Button -->
     <button onclick="location.href='UserMainPage.jsp'">Back to User Main Page</button>
     <button onclick="location.href='../Logout.jsp'">Log out</button>
 
     <h2>Frequently Asked Questions</h2>
 
-    <!-- Search Bar -->
     <label for="searchTerm">Search:</label>
     <input type="text" id="searchTerm" oninput="searchQuestions()">
 
@@ -70,7 +67,6 @@
         %>
     </table>
 
-    <!-- Ask a Question Button -->
     <button onclick="askQuestion()">Ask a Question</button>
 </body>
 </html>

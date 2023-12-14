@@ -10,15 +10,12 @@
     <h2>Update Answer</h2>
 
     <%
-        // Retrieve parameters from the request
         String questionId = request.getParameter("questionId");
         String newAnswer = request.getParameter("newAnswer");
 
         try {
-            // Implement your database update logic here
             ApplicationDB db = new ApplicationDB();
             Connection connection = db.getConnection();
-            // Assume you have a table named "FAQ" with columns "id", "question", and "answer"
             String updateQuery = "UPDATE FAQ SET answer = ? WHERE id = ?";
             try (PreparedStatement preparedStatement = connection.prepareStatement(updateQuery)) {
                 preparedStatement.setString(1, newAnswer);
@@ -43,7 +40,6 @@
         }
     %>
 
-    <!-- Back Button -->
     <button onclick="location.href='CustomerRepMainPage.jsp'">Back to Customer Main Page</button>
     <button onclick="location.href='../Logout.jsp'" >Log out</button>
 </body>

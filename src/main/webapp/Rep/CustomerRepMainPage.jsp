@@ -45,7 +45,6 @@
             </ul>
         </div>
         
-        <!-- Additional functionality blocks can be added here -->
     </div>
 </body>
 </html>
