@@ -62,9 +62,3 @@
     %>
 </body>
 </html>
-
-<!-- INSERT INTO reservations (flightNumber, customerID, customerName, reservationDate, class, status, seatNumber, totalFare, bookingDate) VALUES
-('F001', 'Customer1', 'John Doe', '2023-12-15', 'Economy', 'Confirmed', '12A', 300.00, '2023-11-01 10:30:00'),
-('F001', 'Customer12', 'Jane Smith', '2023-12-15', 'Business', 'Confirmed', '1B', 600.00, '2023-11-02 11:00:00'),
-('F002', 'Customer1', 'John Doe', '2023-12-18', 'Economy', 'Cancelled', '14C', 200.00, '2023-11-05 09:15:00'),
-('F002', 'Customer12', 'Jane Smith', '2023-12-18', 'Business', 'Confirmed', '2D', 400.00, '2023-11-06 08:45:00'); -->

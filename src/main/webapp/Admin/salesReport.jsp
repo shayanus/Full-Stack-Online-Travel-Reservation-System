@@ -38,7 +38,7 @@
             try {
                 ApplicationDB db = new ApplicationDB();
                 conn = db.getConnection();            
-                String sql = "SELECT SUM(t.total_fare) AS TotalSales, COUNT(t.TicketNumber) AS TotalTicketsSold FROM transactionAdmin tr JOIN ticketAdmin t ON tr.TicketNumber = t.TicketNumber WHERE MONTH(t.purchaseDateTime) = ? AND YEAR(t.purchaseDateTime) = ?";
+                String sql = "SELECT SUM(t.total_fare) AS TotalSales, COUNT(t.TicketNumber) AS TotalTicketsSold FROM transactionAdmin tr JOIN ticketadmin t ON tr.TicketNumber = t.TicketNumber WHERE MONTH(t.purchaseDateTime) = ? AND YEAR(t.purchaseDateTime) = ?";
                 
                 int desiredMonth = Integer.parseInt(request.getParameter("month"));
                 int desiredYear = Integer.parseInt(request.getParameter("year"));
