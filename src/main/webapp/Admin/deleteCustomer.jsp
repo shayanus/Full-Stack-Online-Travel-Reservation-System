@@ -7,7 +7,6 @@
 </head>
 
 <body>
-    <!-- Back Button -->
     <button onclick="location.href='AdminMainPage.jsp'">Back to Admin Main Page</button>
     <button onclick="location.href='../Logout.jsp'" style="background-color: #007BFF; color: #fff; padding: 10px; border: none; border-radius: 4px; cursor: pointer;">Log out</button>
     
@@ -60,13 +59,11 @@
                 Statement statement = connection.createStatement();
 
 
-                // Delete from Customer table
                 int rowsAffectedCustomer = statement.executeUpdate("DELETE FROM Customer WHERE UserID='" + UserID + "'");
 
 
                 if (rowsAffectedCustomer > 0) {
 
-                    // Delete from User table only if the deletion from Customer was successful
                     int rowsAffectedUser = statement.executeUpdate("DELETE FROM User WHERE UserID='" + UserID + "'");
 
 

@@ -3,13 +3,10 @@
 <html>
 <head>
     <title>Update Customer Data - Flight Reservation System</title>
-    <style>
-        /* Your existing styles here */
-    </style>
+    
 </head>
 
 <body>
-    <!-- Back Button -->
     <button onclick="location.href='AdminMainPage.jsp'">Back to Admin Main Page</button>
     <button onclick="location.href='../Logout.jsp'" style="background-color: #007BFF; color: #fff; padding: 10px; border: none; border-radius: 4px; cursor: pointer;">Log out</button>
     
@@ -26,11 +23,9 @@
                 Connection connection = db.getConnection();
                 Statement statement = connection.createStatement();
 
-                // Update User table
                 int rowsAffectedUser = statement.executeUpdate("UPDATE User SET UserID='" +UserID+ "', Password='" +Password+ "' WHERE UserID='" +userId+ "'");
 
                 if (rowsAffectedUser > 0) {
-                    // Update Customer table
                     int rowsAffectedCustomer = statement.executeUpdate("UPDATE Customer SET UserID='" +UserID+ "', CustomerIdentifier='" +UserID+ "' WHERE UserID='" + userId + "'");
 
                     if (rowsAffectedCustomer > 0) {

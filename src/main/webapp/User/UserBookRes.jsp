@@ -22,24 +22,18 @@
         }
 
         if ("book".equals(action)) {
-            // Processing form submission
-            // ... existing code for processing form ...
             
-            //String ticketNumber = request.getParameter("ticketNumber");
             String seatNumber = request.getParameter("seatNumber");
             double totalFare = 20.5;
             String classType = request.getParameter("classType");
-            //String bookingFee = request.getParameter("bookingFee");
-            //String passengerName = request.getParameter("passengerName");
+            
             String firstName = request.getParameter("firstName");
             String lastName = request.getParameter("lastName");
-            //boolean isEconomy = Boolean.parseBoolean(request.getParameter("isEconomy"));
-            //float changeCancelFee = Float.parseFloat(request.getParameter("changeCancelFee"));
+            
             String flightNumber = request.getParameter("flightNumber");
             String fromAirport = request.getParameter("fromAirport");
             String toAirport = request.getParameter("toAirport");
             String departureDate = request.getParameter("departureDate");
-            //String departureTime = request.getParameter("departureTime");
 
             ApplicationDB db = new ApplicationDB();  
             Connection con = db.getConnection();
@@ -89,8 +83,7 @@
                 } else {
                     String insertWaitingList = "INSERT INTO waitinglist (accountID, TicketNumber) VALUES (?, ?)";
                     pstmt = con.prepareStatement(insertWaitingList);
-                    pstmt.setString(1, "Customer1"); // Replace with actual account ID
-                    //pstmt.setString(2, ticketNumber);
+                    pstmt.setString(1, "Customer1"); 
                     pstmt.executeUpdate();
                     out.println("<h2>There are currently no available seats for this flight. \nYou have been added to waiting list, and will be notified if there are any changes.</h2>");
                 }
@@ -101,12 +94,10 @@
                 if (con != null) try { con.close(); } catch (SQLException e) {}
             }
         } else {
-            // Retrieve hidden data from the search result page
             String flightNumber = request.getParameter("flightNumber");
             String originAirport = request.getParameter("origin_airport");
             String destinationAirport = request.getParameter("destination_airport");
             String departure_date = request.getParameter("departure_date");
-            // Display the form
 
             flightNumber = (flightNumber != null) ? flightNumber : "";
             originAirport = (originAirport != null) ? originAirport : "";
@@ -135,8 +126,7 @@
             <input type="date" id="departure_date" name="departure_date" value="<%= departure_date %>"><br>
 
 
-            <!-- Add other necessary fields for user to fill -->
-            <!-- Example: dropdown for class selection -->
+           
             <label for="classType">Class Type:</label>
             <select id="classType" name="classType">
                 <option value="economy">Economy</option>
@@ -144,7 +134,6 @@
                 <option value="firstClass">First Class</option>
             </select><br>
 
-            <!-- You can add more fields here if necessary -->
         
             <input type="submit" value="Book Flight">
         </form>

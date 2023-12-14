@@ -50,11 +50,9 @@
             <%= request.getAttribute("errorMessage") %>
         </p>
 
-        <!-- Back Button -->
         <button onclick="location.href='CustomerRepMainPage.jsp'">Back to Rep Main Page</button>
         <button onclick="location.href='../Logout.jsp'" style="background-color: #007BFF; color: #fff; padding: 10px; border: none; border-radius: 4px; cursor: pointer;">Log out</button>
 
-        <!-- Java code to delete the selected aircraft -->
         <%
             String selectedAircraft = request.getParameter("selectedAircraft");
 
@@ -64,7 +62,6 @@
                     Connection connection = db.getConnection();
                     Statement statement = connection.createStatement();
 
-                    // Delete the selected aircraft from the database
                     int rowsDeleted = statement.executeUpdate("DELETE FROM aircraft WHERE AircraftID='" + selectedAircraft + "'");
 
                     if (rowsDeleted > 0) {

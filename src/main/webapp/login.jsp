@@ -38,7 +38,6 @@
         <img src="airplane_logo.jpg" alt="logo">
     </div>
 
-    <%-- Server-side validation and processing--%>
     <%
     String UserID = request.getParameter("username");
     String Password = request.getParameter("password");

@@ -27,33 +27,26 @@
         	Statement stmt = con.createStatement();
 
             try {
-                // Assuming you have a DataSource setup in your server context
                 
-
-                // Query for Departing Flights
                	String queryDeparting = "SELECT * FROM FlightServices WHERE origin_airport = ? OR destination_airport = ?";
 				pstmt = con.prepareStatement(queryDeparting);
 				pstmt.setString(1, airportCode);
 				pstmt.setString(2, airportCode);
 
 
-                // Executing Departing Flights Query
                 out.println("<h2>Departing Flights:</h2>");
                 rs = pstmt.executeQuery();
                 while (rs.next()) {
                     out.println("<p>" + rs.getString("flightNumber") + " - " + rs.getString("origin_airport") + " to " + rs.getString("destination_airport") + "</p>");
                 }
 
-                // Query for Arriving Flights
                 String queryArriving = "SELECT * FROM flightservices fs JOIN departurearrival da ON fs.flightNumber = da.flightNumber WHERE da.ArrivalThreeLetterID = ?";
                 pstmt = con.prepareStatement(queryArriving);
                 pstmt.setString(1, airportCode);
 
-                // Executing Arriving Flights Query
                 out.println("<h2>Arriving Flights:</h2>");
                 rs = pstmt.executeQuery();
                 while (rs.next()) {
-                    // Display each row
                     out.println("<p>" + rs.getString("flightNumber") + " - " + rs.getString("origin_airport") + " to " + rs.getString("destination_airport") + "</p>");
                 }
             } catch (Exception e) {

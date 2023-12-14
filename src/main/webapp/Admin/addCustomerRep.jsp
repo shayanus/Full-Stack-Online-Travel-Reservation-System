@@ -31,7 +31,6 @@
         
     </div>
 
-    <%-- Server-side validation and processing--%>
     <%
     String UserID = request.getParameter("username");
     String Password = request.getParameter("password");
@@ -45,10 +44,8 @@
             ResultSet rs = statement.executeQuery("SELECT * FROM CustomerRepresentative WHERE UserID='" +UserID+ "'");
 
             if (rs.next()) {
-                // Username already exists
             	out.println("UserID exists, please try another <a href='addCustomerRep.jsp'>try again</a>");
             } else {
-                // Username doesn't exist, add to the table
                 int x = statement.executeUpdate("INSERT INTO User(UserID, Password, role) VALUES('" +UserID+ "', '" +Password+ "', 'CustomerRepresentative')");
                 int y = statement.executeUpdate("INSERT INTO CustomerRepresentative(UserID, RepresentativeIdentifier) VALUES('" +UserID+ "', '" +UserID+ "')");
                 out.println("Customer Rep Added");

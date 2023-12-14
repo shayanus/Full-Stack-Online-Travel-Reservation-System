@@ -24,13 +24,11 @@
         <p id="error">
             <%= request.getAttribute("errorMessage") %>
         </p>
-        <!-- Back Button -->
         <button onclick="location.href='AdminMainPage.jsp'">Back to Admin Main Page</button>
         <button onclick="location.href='../Logout.jsp'" style="background-color: #007BFF; color: #fff; padding: 10px; border: none; border-radius: 4px; cursor: pointer;">Log out</button>
         
     </div>
 
-    <%-- Server-side validation and processing--%>
     <%
     String UserID = request.getParameter("username");
     String Password = request.getParameter("password");

@@ -10,7 +10,6 @@
 
     <h2>Edit Ticket</h2>
 
-    <!-- Display all tickets -->
     <form method="post">
         <label for="ticketNumber">Select Ticket Number to Edit:</label>
         <select id="ticketNumber" name="ticketNumber">
@@ -38,7 +37,6 @@
             <option value="seatNumber">Seat Number</option>
             <option value="total_fare">Total Fare</option>
             <option value="bookingFee">Booking Fee</option>
-            <!-- Add more attributes as needed -->
         </select>
         <br>
 
@@ -49,7 +47,6 @@
         <button type="submit">Edit Ticket</button>
     </form>
 
-    <!-- Process Edit -->
     <%
         String ticketNumberToEdit = request.getParameter("ticketNumber");
         String attributeToEdit = request.getParameter("attribute");

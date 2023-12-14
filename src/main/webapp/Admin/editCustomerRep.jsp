@@ -10,7 +10,6 @@
             var newPassword = prompt("Enter new Password:");
 
             if (newUsername !== null && newPassword !== null) {
-                // Assuming your updateCustomerData.jsp is in the same directory
                 window.location.href = "updateCustomerRepData.jsp?userId=" + userId + "&newUsername=" + newUsername + "&newPassword=" + newPassword;
             }
         }

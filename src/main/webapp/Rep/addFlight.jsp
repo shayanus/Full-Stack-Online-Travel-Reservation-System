@@ -26,13 +26,11 @@
 </head>
 
 <body>
-    <!-- Back Button -->
     <button onclick="location.href='CustomerRepMainPage.jsp'" style="background-color: #007BFF; color: #fff; padding: 10px; border: none; border-radius: 4px; cursor: pointer;">Back to Customer Rep Main Page</button>
     <button onclick="location.href='../Logout.jsp'" style="background-color: #007BFF; color: #fff; padding: 10px; border: none; border-radius: 4px; cursor: pointer;">Log out</button>
 
     <h2>Add Flight</h2>
 
-    <!-- Add Flight Form -->
     <form method="post" action="processAddFlight.jsp" onsubmit="return validateForm()">
         <label for="flightNumber">Flight Number:</label>
         <input type="text" id="flightNumber" name="flightNumber" required>

@@ -4,7 +4,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <!-- Jan 2023, Feb 2023  -->
     <title>Sales Report</title>
 </head>
 <body>

@@ -8,88 +8,6 @@
 <head>
     <meta charset="UTF-8">
     <title>Register New User</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f7f7f7;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-        }
-
-        .container {
-            display: flex;
-            justify-content: space-between;
-            width: 80%;
-        }
-
-        .welcome-screen {
-            background-color: #0056b3; /* Slightly darker blue */
-            color: #fff;
-            border-radius: 5px;
-            width: 45%;
-            padding: 20px;
-            text-align: center;
-        }
-
-        .registration-container {
-            background-color: #fff;
-            border: 2px solid #000;
-            border-radius: 5px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            width: 45%;
-            padding: 20px;
-        }
-
-        .registration-container h2 {
-            color: #333;
-            text-align: center;
-        }
-
-        .registration-container label {
-            display: block;
-            margin-bottom: 8px;
-        }
-
-        .registration-container input,
-        .registration-container select {
-            width: 80%;
-            padding: 10px;
-            margin-bottom: 15px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-        }
-
-        .registration-container button {
-            background-color: #0056b3; /* Dark blue */
-            color: #fff;
-            padding: 10px 0;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            width: 80%;
-        }
-
-        .registration-container button:hover {
-            background-color: #003366; /* Darker blue on hover */
-        }
-
-        .registration-container p#error {
-            color: red;
-            text-align: center;
-            margin-top: 15px;
-        }
-
-        /* New styles for instructional text */
-        .registration-container p.instruction {
-            color: #555;
-            font-size: 14px;
-            text-align: left;
-            margin-bottom: 10px;
-        }
-    </style>
 </head>
 <body>
     <div class="container">
@@ -151,7 +69,7 @@
             			
             		}
             		
-            		session.setAttribute("user", UserID); // the username will be stored in the session
+            		session.setAttribute("user", UserID); 
                     response.sendRedirect("LoginSuccess.jsp");
             	}
             	

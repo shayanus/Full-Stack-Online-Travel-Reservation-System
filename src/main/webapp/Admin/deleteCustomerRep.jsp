@@ -59,13 +59,11 @@
                 Connection connection = db.getConnection();
                 Statement statement = connection.createStatement();
 
-                // Delete from Customer table
                 int rowsAffectedCustomer = statement.executeUpdate("DELETE FROM CustomerRepresentative WHERE UserID='" + UserID + "'");
 
 
                 if (rowsAffectedCustomer > 0) {
 
-                    // Delete from User table only if the deletion from Customer was successful
                     int rowsAffectedUser = statement.executeUpdate("DELETE FROM User WHERE UserID='" + UserID + "'");
 
 

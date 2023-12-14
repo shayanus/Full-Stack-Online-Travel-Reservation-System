@@ -23,11 +23,9 @@
                 <li><a href="editCustomer.jsp">Edit Customer</a></li>
                 <li><a href="deleteCustomer.jsp">Delete Customer</a></li>
                 
-                <!-- Add/Edit/Delete Customer Representative Buttons -->
                 <li><a href="addCustomerRep.jsp">Add Customer Representative</a></li>
                 <li><a href="editCustomerRep.jsp">Edit Customer Representative</a></li>
                 <li><a href="deleteCustomerRep.jsp">Delete Customer Representative</a></li>
-                <!-- End of Customer Representative Buttons -->
             </ul>
         </div>
         
@@ -42,7 +40,6 @@
             </ul>
         </div>
         
-        <!-- More admin options can be added here -->
     </div>
 </body>
 </html>
