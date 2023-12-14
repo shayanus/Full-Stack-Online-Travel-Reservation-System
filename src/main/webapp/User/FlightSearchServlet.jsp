@@ -251,16 +251,13 @@ pageEncoding="ISO-8859-1" import="com.cs336.pkg.*"%>
                     <td><%= rs.getInt("number_of_stops") %></td>
                     <td><%= rs.getString("flight_type") %></td>
                     <td><%= rs.getString("duration") %></td>
-                    //Add more data columns as needed 
                     <td>
-                        //Add a 'Book Flight' button for each flight 
                         <form action="UserBookRes.jsp" method="post">
                             <input type="hidden" name="flightNumber" value="<%= rs.getString("flightNumber") %>" />
                             <input type="hidden" name="origin_airport" value="<%= rs.getString("origin_airport") %>" />
                             <input type="hidden" name="destination_airport" value="<%= rs.getString("destination_airport") %>" />
                             <input type="hidden" name="departure_date" value="<%= rs.getString("departure_date") %>" />
-                            //Add other hidden fields as needed to pass flight details 
-                            <input type="submit" value="Book Flight" />
+                            <input type="submit" value="Book Now" />
                         </form>
                     </td>
                 </tr>
