@@ -781,13 +781,13 @@ INSERT INTO `ticketflightassociatedwith` VALUES (7000,'F100',NULL,NULL,NULL),(85
 UNLOCK TABLES;
 
 --
--- Table structure for table `ticketflightassociatedwithadmin`
+-- Table structure for table `admintickets`
 --
 
-DROP TABLE IF EXISTS `ticketflightassociatedwithadmin`;
+DROP TABLE IF EXISTS `admintickets`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `ticketflightassociatedwithadmin` (
+CREATE TABLE `admintickets` (
   `ticketnumber` int NOT NULL,
   `flightNumber` varchar(5) NOT NULL,
   `fromAirport` varchar(3) DEFAULT NULL,
@@ -806,12 +806,12 @@ CREATE TABLE `ticketflightassociatedwithadmin` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `ticketflightassociatedwithadmin`
+-- Dumping data for table `admintickets`
 --
 
-LOCK TABLES `ticketflightassociatedwithadmin` WRITE;
-/*!40000 ALTER TABLE `ticketflightassociatedwithadmin` DISABLE KEYS */;
-/*!40000 ALTER TABLE `ticketflightassociatedwithadmin` ENABLE KEYS */;
+LOCK TABLES `admintickets` WRITE;
+/*!40000 ALTER TABLE `admintickets` DISABLE KEYS */;
+/*!40000 ALTER TABLE `admintickets` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --

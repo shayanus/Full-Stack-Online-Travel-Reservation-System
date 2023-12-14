@@ -13,7 +13,7 @@
         <button onclick="location.href='../Logout.jsp'" >Log out</button>
  
     <h1>Flight Waiting List</h1>
-    <table>
+    <table border="1">
         <tr>
             <th>Account ID</th>
             <th>Ticket Number</th>

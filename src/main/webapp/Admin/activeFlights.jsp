@@ -18,7 +18,7 @@
             ApplicationDB db = new ApplicationDB();
             connection = db.getConnection();
 
-            String sql = "SELECT tfa.flightNumber, COUNT(tfa.TicketNumber) AS TicketsSold FROM ticketflightassociatedwithAdmin tfa JOIN ticketAdmin t ON tfa.TicketNumber = t.TicketNumber GROUP BY tfa.flightNumber ORDER BY COUNT(tfa.TicketNumber) DESC";
+            String sql = "SELECT tfa.flightNumber, COUNT(tfa.TicketNumber) AS TicketsSold FROM admintickets tfa JOIN ticketAdmin t ON tfa.TicketNumber = t.TicketNumber GROUP BY tfa.flightNumber ORDER BY COUNT(tfa.TicketNumber) DESC";
             pstmt = connection.prepareStatement(sql);
             rs = pstmt.executeQuery();
 
@@ -74,25 +74,25 @@ INSERT INTO ticketAdmin (TicketNumber, total_fare, purchaseDateTime, Passenger_N
  -->
  
 <!--  -- Flight F100 associations
-INSERT INTO ticketflightassociatedwithAdmin (TicketNumber, flightNumber) VALUES ('T1010', 'F100');
-INSERT INTO ticketflightassociatedwithAdmin (TicketNumber, flightNumber) VALUES ('T1011', 'F100');
-INSERT INTO ticketflightassociatedwithAdmin (TicketNumber, flightNumber) VALUES ('T1012', 'F100');
-INSERT INTO ticketflightassociatedwithAdmin (TicketNumber, flightNumber) VALUES ('T1013', 'F100');
-INSERT INTO ticketflightassociatedwithAdmin (TicketNumber, flightNumber) VALUES ('T1014', 'F100');
+INSERT INTO admintickets (TicketNumber, flightNumber) VALUES ('T1010', 'F100');
+INSERT INTO admintickets (TicketNumber, flightNumber) VALUES ('T1011', 'F100');
+INSERT INTO admintickets (TicketNumber, flightNumber) VALUES ('T1012', 'F100');
+INSERT INTO admintickets (TicketNumber, flightNumber) VALUES ('T1013', 'F100');
+INSERT INTO admintickets (TicketNumber, flightNumber) VALUES ('T1014', 'F100');
 
 -- Flight F101 associations
-INSERT INTO ticketflightassociatedwithAdmin (TicketNumber, flightNumber) VALUES ('T1015', 'F101');
-INSERT INTO ticketflightassociatedwithAdmin (TicketNumber, flightNumber) VALUES ('T1016', 'F101');
-INSERT INTO ticketflightassociatedwithAdmin (TicketNumber, flightNumber) VALUES ('T1017', 'F101');
+INSERT INTO admintickets (TicketNumber, flightNumber) VALUES ('T1015', 'F101');
+INSERT INTO admintickets (TicketNumber, flightNumber) VALUES ('T1016', 'F101');
+INSERT INTO admintickets (TicketNumber, flightNumber) VALUES ('T1017', 'F101');
 
 -- Flight F102 associations
-INSERT INTO ticketflightassociatedwithAdmin (TicketNumber, flightNumber) VALUES ('T1018', 'F102');
-INSERT INTO ticketflightassociatedwithAdmin (TicketNumber, flightNumber) VALUES ('T1019', 'F102');
-INSERT INTO ticketflightassociatedwithAdmin (TicketNumber, flightNumber) VALUES ('T1020', 'F102');
-INSERT INTO ticketflightassociatedwithAdmin (TicketNumber, flightNumber) VALUES ('T1021', 'F102');
-INSERT INTO ticketflightassociatedwithAdmin (TicketNumber, flightNumber) VALUES ('T1022', 'F102');
-INSERT INTO ticketflightassociatedwithAdmin (TicketNumber, flightNumber) VALUES ('T1023', 'F102');
-INSERT INTO ticketflightassociatedwithAdmin (TicketNumber, flightNumber) VALUES ('T1024', 'F102'); -->
+INSERT INTO admintickets (TicketNumber, flightNumber) VALUES ('T1018', 'F102');
+INSERT INTO admintickets (TicketNumber, flightNumber) VALUES ('T1019', 'F102');
+INSERT INTO admintickets (TicketNumber, flightNumber) VALUES ('T1020', 'F102');
+INSERT INTO admintickets (TicketNumber, flightNumber) VALUES ('T1021', 'F102');
+INSERT INTO admintickets (TicketNumber, flightNumber) VALUES ('T1022', 'F102');
+INSERT INTO admintickets (TicketNumber, flightNumber) VALUES ('T1023', 'F102');
+INSERT INTO admintickets (TicketNumber, flightNumber) VALUES ('T1024', 'F102'); -->
  
  
  

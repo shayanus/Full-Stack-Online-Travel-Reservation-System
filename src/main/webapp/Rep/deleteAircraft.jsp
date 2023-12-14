@@ -8,7 +8,7 @@
     <div class="delete-aircraft-container">
         <h2>Delete Aircraft</h2>
 
-        <table>
+        <table border="1">
             <tr>
                 <th>Aircraft ID</th>
                 <th>Number of Seats</th>

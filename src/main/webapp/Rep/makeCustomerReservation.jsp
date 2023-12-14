@@ -31,7 +31,7 @@
                 String query = "SELECT UserID, CustomerIdentifier FROM customer";
                 rs1 = stmt.executeQuery(query);
         %>
-                <table>
+                <table border="1">
                     <tr>
                         <th>User ID</th>
                         <th>Customer Identifier</th>
