@@ -8,10 +8,18 @@
 </head>
 <body>
     <button onclick="location.href='UserMainPage.jsp'">Back to User Main Page</button>
-    <button onclick="location.href='../Logout.jsp'">Log out</button>
+    <button onclick="location.href='../Logout.jsp'">Log out</button><br>
 
     <%
         String action = request.getParameter("action");
+        Object accountIDObj = session.getAttribute("user");
+        String accountID = (accountIDObj != null) ? accountIDObj.toString() : null;
+        if (accountID == null) { 
+            out.println("\nYou have been logged out due to inactivity, please log in again"); %>
+            <button onclick="location.href='../login.jsp'">Log In</button>
+    <%
+        
+        }
 
         if ("book".equals(action)) {
             // Processing form submission
@@ -39,6 +47,7 @@
             boolean isFlightFull = false;
             int ticketNumber = -1;
             ResultSet generatedKeys = null;
+
 
             try {
                 String insertTicket = "INSERT INTO ticket VALUES (NULL, NULL, ?, CURRENT_TIMESTAMP, ?, ?, ?)";

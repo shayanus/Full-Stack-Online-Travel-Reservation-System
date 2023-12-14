@@ -12,7 +12,7 @@
     <div class="header">
         <h1>Customer Representative Dashboard</h1>
     </div>
-    <button onclick="location.href='../Logout.jsp'" style="background-color: #007BFF; color: #fff; padding: 10px; border: none; border-radius: 4px; cursor: pointer;">Log out</button>
+    <button onclick="location.href='../Logout.jsp'">Log out</button>
     
     <div class="container">
         <div class="functionality-block">
