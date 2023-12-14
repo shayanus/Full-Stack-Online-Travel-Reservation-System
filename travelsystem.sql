@@ -126,10 +126,10 @@ CREATE TABLE `admintickets` (
   KEY `flightNumber` (`flightNumber`),
   KEY `fromAirport` (`fromAirport`),
   KEY `toAirport` (`toAirport`),
-  CONSTRAINT `ticketflightassociatedwithAdmin_ibfk_1` FOREIGN KEY (`ticketnumber`) REFERENCES `ticketadmin` (`ticketnumber`),
-  CONSTRAINT `ticketflightassociatedwithAdmin_ibfk_2` FOREIGN KEY (`flightNumber`) REFERENCES `flightservices` (`flightNumber`),
-  CONSTRAINT `ticketflightassociatedwithAdmin_ibfk_3` FOREIGN KEY (`fromAirport`) REFERENCES `airport` (`ThreeLetterID`),
-  CONSTRAINT `ticketflightassociatedwithAdmin_ibfk_4` FOREIGN KEY (`toAirport`) REFERENCES `airport` (`ThreeLetterID`)
+  CONSTRAINT `admintickets_ibfk_1` FOREIGN KEY (`ticketnumber`) REFERENCES `ticketadmin` (`ticketnumber`),
+  CONSTRAINT `admintickets_ibfk_2` FOREIGN KEY (`flightNumber`) REFERENCES `flightservices` (`flightNumber`),
+  CONSTRAINT `admintickets_ibfk_3` FOREIGN KEY (`fromAirport`) REFERENCES `airport` (`ThreeLetterID`),
+  CONSTRAINT `admintickets_ibfk_4` FOREIGN KEY (`toAirport`) REFERENCES `airport` (`ThreeLetterID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 

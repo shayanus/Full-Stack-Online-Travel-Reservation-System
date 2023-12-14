@@ -21,7 +21,7 @@
 
         try {
 
-            String query = "SELECT t.TicketNumber, t.seatNumber, t.total_fare, t.class, tfa.flightNumber, tfa.fromAirport, tfa.toAirport, tfa.departureDate, tfa.departureTime FROM ticket t JOIN ticketflightassociatedwith tfa ON t.TicketNumber = tfa.TicketNumber WHERE tfa.departureDate >= CURRENT_DATE";
+            String query = "SELECT t.TicketNumber, t.seatNumber, t.total_fare, t.class, tfa.flightNumber, tfa.fromAirport, tfa.toAirport, tfa.departureDate, tfa.departureTime FROM ticket t JOIN admintickets tfa ON t.TicketNumber = tfa.TicketNumber WHERE tfa.departureDate >= CURRENT_DATE";
             pstmt = con.prepareStatement(query);
 
             rs = pstmt.executeQuery();
