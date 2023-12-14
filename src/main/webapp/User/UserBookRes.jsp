@@ -7,7 +7,7 @@
     <title>Flight Booking</title>
 </head>
 <body>
-    <button onclick="location.href='UserMainPage.jsp'">Back to User Main Page</button>
+    <button onclick="location.href='UserPortal.jsp'">Back to User Main Page</button>
     <button onclick="location.href='../Logout.jsp'">Log out</button><br>
 
     <%

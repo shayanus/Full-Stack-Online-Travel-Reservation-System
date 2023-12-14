@@ -64,7 +64,7 @@
     
                     if(role.equals("Customer")){
                     	session.setAttribute("user", UserID);
-                    	response.sendRedirect("User/UserMainPage.jsp");
+                    	response.sendRedirect("User/UserPortal.jsp");
                     }
                     if(role.equals("CustomerRepresentative")){
                     	 session.setAttribute("user", UserID);
