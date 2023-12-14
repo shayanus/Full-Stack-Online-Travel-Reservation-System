@@ -9,8 +9,6 @@
     <div class="container">
         <h2>Welcome, <%=session.getAttribute("user") %>! <a href="login.jsp">Login here</a>
 </p>
-        <!-- You can customize the content of the successful login page -->
-
     </div>
 </body>
 </html>

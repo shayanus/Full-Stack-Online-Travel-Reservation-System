@@ -10,7 +10,7 @@ public class ApplicationDB{
 	}
 	
 	public Connection getConnection() {
-		String connectionUrl = "jdbc:mysql://localhost:3306/FlightReservationSystem";
+		String connectionUrl = "jdbc:mysql://localhost:3306/travelsystem";
 		Connection connection = null;
 		try {
 			//Load JDBC driver - the interface standardizing the connection procedure. Look at WEB-INF\lib for a mysql connector jar file, otherwise it fails.
