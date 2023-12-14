@@ -12,14 +12,15 @@
 
     <%
         String action = request.getParameter("action");
+
         if ("book".equals(action)) {
             // Processing form submission
             // ... existing code for processing form ...
             
             //String ticketNumber = request.getParameter("ticketNumber");
             String seatNumber = request.getParameter("seatNumber");
-            double totalFare = Double.parseDouble(request.getParameter("totalFare"));
-            String classType = request.getParameter("class");
+            double totalFare = 20.5;
+            String classType = request.getParameter("classType");
             //String bookingFee = request.getParameter("bookingFee");
             //String passengerName = request.getParameter("passengerName");
             String firstName = request.getParameter("firstName");
@@ -36,47 +37,19 @@
             Connection con = db.getConnection();
             ResultSet rs = null;
             boolean isFlightFull = false;
+            int ticketNumber = -1;
+            ResultSet generatedKeys = null;
 
-            
             try {
-                String flightNumber = request.getParameter("flightNumber");
-                String findFareQuery = "SELECT " + classType + "_fare FROM flightservices WHERE flightNumber = ?";
-                
-                PreparedStatement pstmt = con.prepareStatement(findFareQuery);
-                pstmt.setString(1, flightNumber);
-                
-                ResultSet rs = pstmt.executeQuery();
+                String insertTicket = "INSERT INTO ticket VALUES (NULL, NULL, ?, CURRENT_TIMESTAMP, ?, ?, ?)";
+                PreparedStatement pstmt = con.prepareStatement(insertTicket, Statement.RETURN_GENERATED_KEYS);
 
-                if (rs.next()) {
-                    double fare = rs.getDouble(1); // Assuming the fare is stored as a double in the database
-
-                    // Now you have the fare for the selected class type, you can use it as needed
-                    // For example, you can display it or use it in your booking logic
-                    out.println("<p>Fare for " + classType + " class: $" + fare + "</p>");
-                } else {
-                    out.println("<p>Error: Could not find fare for the selected class type.</p>");
-                }
-            } catch (SQLException e) {
-                out.println("<p>Error: " + e.getMessage() + "</p>");
-            } finally {
-                // Close resources (ResultSet, PreparedStatement, etc.) if needed
-            }
-            
-            try {
-                String insertTicket = "INSERT INTO ticket VALUES (NULL, ?, ?, CURRENT_DATE, ?, ?, ?)";
-                PreparedStatement pstmt = con.prepareStatement(insertTicket);
-                //pstmt.setString(1, ticketNumber);
-                pstmt.setString(2, seatNumber);
-                pstmt.setDouble(3, totalFare);
-                //pstmt.setString(4, classType);
-                //pstmt.setString(5, passengerName);
-                pstmt.setString(4, firstName);
-                pstmt.setString(5, lastName);
-                pstmt.setString(6, classType);
-                //pstmt.setFloat(9, changeCancelFee);
-                //pstmt.setFloat(10, Float.parseFloat(bookingFee));
+                pstmt.setDouble(1, totalFare);
+                pstmt.setString(2, firstName);
+                pstmt.setString(3, lastName);
+                pstmt.setString(4, classType);
                 pstmt.executeUpdate();
-
+    
                 String checkFlight = "SELECT is_full FROM flightservices WHERE flightNumber = ?";
                 pstmt = con.prepareStatement(checkFlight);
                 pstmt.setString(1, flightNumber);
@@ -85,17 +58,25 @@
                     isFlightFull = rs.getBoolean("is_full");
                 }
 
+                String lastInsertIdQuery = "SELECT LAST_INSERT_ID()";
+                pstmt = con.prepareStatement(lastInsertIdQuery);
+                rs = pstmt.executeQuery();
+
+                if (rs.next()) {
+                    ticketNumber = rs.getInt(1);
+                }
+
                 if (!isFlightFull) {
-                    String insertFlight = "INSERT INTO ticketflightassociatedwith (TicketNumber, flightNumber, fromAirport, toAirport, departureDate, departureTime) VALUES (?, ?, ?, ?, ?, ?)";
+                    String insertFlight = "INSERT INTO ticketflightassociatedwith VALUES (?, ?, ?, ?, ?)";
                     pstmt = con.prepareStatement(insertFlight);
-                    pstmt.setString(2, seatNumber);
-                    pstmt.setDouble(3, totalFare);
-                    pstmt.setString(4, firstName);
-                    pstmt.setString(5, lastName);
-                    pstmt.setString(6, classType);
+                    pstmt.setInt(1, ticketNumber);
+                    pstmt.setString(2, flightNumber);
+                    pstmt.setString(3, fromAirport);
+                    pstmt.setString(4, toAirport);
+                    pstmt.setString(5, departureDate);
                     pstmt.executeUpdate();
 
-                    out.println("<h2>Flight Booking Confirmed</h2>");
+                    out.println("<h2>Flight Booking Confirmed, ticket number is " + ticketNumber + "</h2>");
                 } else {
                     String insertWaitingList = "INSERT INTO waitinglist (accountID, TicketNumber) VALUES (?, ?)";
                     pstmt = con.prepareStatement(insertWaitingList);
@@ -105,7 +86,7 @@
                     out.println("<h2>There are currently no available seats for this flight. \nYou have been added to waiting list, and will be notified if there are any changes.</h2>");
                 }
             } catch (Exception e) {
-                out.println("Error: " + e.getMessage());
+                out.println("Error: " + e.getMessage() + "\n\n" + generatedKeys);
             } finally {
                 if (rs != null) try { rs.close(); } catch (SQLException e) {}
                 if (con != null) try { con.close(); } catch (SQLException e) {}

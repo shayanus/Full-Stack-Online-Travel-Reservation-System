@@ -756,12 +756,11 @@ DROP TABLE IF EXISTS `ticketflightassociatedwith`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `ticketflightassociatedwith` (
-  `ticketnumber` int NOT NULL,
+  `ticketnumber` int,
   `flightNumber` varchar(5) NOT NULL,
   `fromAirport` varchar(3) DEFAULT NULL,
   `toAirport` varchar(3) DEFAULT NULL,
   `departureDate` date DEFAULT NULL,
-  `departureTime` time DEFAULT NULL,
   PRIMARY KEY (`ticketNumber`,`flightNumber`),
   KEY `flightNumber` (`flightNumber`),
   KEY `fromAirport` (`fromAirport`),
@@ -779,7 +778,7 @@ CREATE TABLE `ticketflightassociatedwith` (
 
 LOCK TABLES `ticketflightassociatedwith` WRITE;
 /*!40000 ALTER TABLE `ticketflightassociatedwith` DISABLE KEYS */;
-INSERT INTO `ticketflightassociatedwith` VALUES ('G42','F001','JFK','LAX','2023-12-06','12:00:00'),('G654','F003','JFK','AMS','2023-12-12','07:00:00');
+-- INSERT INTO `ticketflightassociatedwith` VALUES ('G42','F001','JFK','LAX','2023-12-06','12:00:00'),('G654','F003','JFK','AMS','2023-12-12','07:00:00');
 /*!40000 ALTER TABLE `ticketflightassociatedwith` ENABLE KEYS */;
 UNLOCK TABLES;
 

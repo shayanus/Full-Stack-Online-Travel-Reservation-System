@@ -5,7 +5,7 @@
 </head>
 <body>
     <div class="header">
-        <h1>Welcome, User</h1>
+        <h1>Welcome, <%= session.getAttribute("user") %></h1>
         <!-- Logout button -->
         <form action="../Logout.jsp" method="post">
             <input type="submit" value="Logout" class="logout-button"/>
