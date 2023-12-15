@@ -95,9 +95,9 @@
             }
         } else {
             String flightNumber = request.getParameter("flightNumber");
-            String originAirport = request.getParameter("origin_airport");
-            String destinationAirport = request.getParameter("destination_airport");
-            String departure_date = request.getParameter("departure_date");
+            String originAirport = request.getParameter("fromAirport");
+            String destinationAirport = request.getParameter("toAirport");
+            String departureDate = request.getParameter("departureDate");
 
             flightNumber = (flightNumber != null) ? flightNumber : "";
             originAirport = (originAirport != null) ? originAirport : "";
@@ -116,14 +116,14 @@
             <label for="flightNumber">Flight Number:</label>
             <input type="text" id="flightNumber" name="flightNumber" value="<%= flightNumber %>"><br>
         
-            <label for="origin_airport">Origin Airport:</label>
-            <input type="text" id="origin_airport" name="origin_airport" value="<%= originAirport %>"><br>
+            <label for="fromAirport">Origin Airport:</label>
+            <input type="text" id="fromAirport" name="fromAirport" value="<%= originAirport %>"><br>
 
-            <label for="destination_airport">Destination Airport:</label>
-            <input type="text" id="destination_airport" name="destination_airport" value="<%= destinationAirport %>"><br>
+            <label for="toAirport">Destination Airport:</label>
+            <input type="text" id="toAirport" name="toAirport" value="<%= destinationAirport %>"><br>
 
-            <label for="departure_date">Departure Date:</label>
-            <input type="date" id="departure_date" name="departure_date" value="<%= departure_date %>"><br>
+            <label for="departureDate">Departure Date:</label>
+            <input type="date" id="departureDate" name="departureDate" value="<%= departureDate %>"><br>
 
 
             <!-- Add other necessary fields for user to fill -->

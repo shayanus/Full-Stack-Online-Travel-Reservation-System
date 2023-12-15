@@ -28,7 +28,7 @@
 
             try {
                 
-               	String queryDeparting = "SELECT * FROM FlightServices WHERE origin_airport = ? OR destination_airport = ?";
+               	String queryDeparting = "SELECT * FROM FlightServices WHERE fromAirport = ? OR toAirport = ?";
 				pstmt = con.prepareStatement(queryDeparting);
 				pstmt.setString(1, airportCode);
 				pstmt.setString(2, airportCode);
@@ -37,7 +37,7 @@
                 out.println("<h2>Departing Flights:</h2>");
                 rs = pstmt.executeQuery();
                 while (rs.next()) {
-                    out.println("<p>" + rs.getString("flightNumber") + " - " + rs.getString("origin_airport") + " to " + rs.getString("destination_airport") + "</p>");
+                    out.println("<p>" + rs.getString("flightNumber") + " - " + rs.getString("fromAirport") + " to " + rs.getString("toAirport") + "</p>");
                 }
 
                 String queryArriving = "SELECT * FROM flightservices fs JOIN departurearrival da ON fs.flightNumber = da.flightNumber WHERE da.ArrivalThreeLetterID = ?";
@@ -47,7 +47,7 @@
                 out.println("<h2>Arriving Flights:</h2>");
                 rs = pstmt.executeQuery();
                 while (rs.next()) {
-                    out.println("<p>" + rs.getString("flightNumber") + " - " + rs.getString("origin_airport") + " to " + rs.getString("destination_airport") + "</p>");
+                    out.println("<p>" + rs.getString("flightNumber") + " - " + rs.getString("fromAirport") + " to " + rs.getString("toAirport") + "</p>");
                 }
             } catch (Exception e) {
                 out.println("Error: " + e.getMessage());

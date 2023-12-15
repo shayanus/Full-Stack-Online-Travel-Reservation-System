@@ -15,7 +15,7 @@
     <div>
         <h1>Book Your Flight</h1>
         <form action="../Logout.jsp" method="post">
-            <input type="submit" value="Logout" class="logout-button"/>
+            <input type="submit" value="Logout"/>
         </form>
     </div>
 

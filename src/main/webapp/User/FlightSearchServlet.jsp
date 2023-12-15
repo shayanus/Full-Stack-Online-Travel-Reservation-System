@@ -70,12 +70,12 @@ pageEncoding="ISO-8859-1" import="com.cs336.pkg.*"%>
             if (roundTrip) {
                 
                 query = "SELECT * FROM flightservices WHERE " +
-                        "((origin_airport = ? AND destination_airport = ?) OR (origin_airport = ? AND destination_airport = ?)) ";
+                        "((fromAirport = ? AND toAirport = ?) OR (fromAirport = ? AND toAirport = ?)) ";
 
                 if (isFlexible) {
-                    query += "AND (departure_date BETWEEN ? AND DATE_ADD(?, INTERVAL 3 DAY)) ";
+                    query += "AND (departureDate BETWEEN ? AND DATE_ADD(?, INTERVAL 3 DAY)) ";
                 } else {
-                    query += "AND (departure_date = ? OR departure_date = ?) ";
+                    query += "AND (departureDate = ? OR departureDate = ?) ";
                 }
                 int parameterIndex = 7;
 
@@ -91,7 +91,7 @@ pageEncoding="ISO-8859-1" import="com.cs336.pkg.*"%>
                     query += "AND (economy_fare <= ? OR business_fare <= ? OR first_class_fare <= ?) ";
                 }
                 if (request.getParameter("takeoffTime") != null && !request.getParameter("takeoffTime").isEmpty()) {
-                    query += "AND departure_times >= ? ";
+                    query += "AND departureTime >= ? ";
                 }
                 if (request.getParameter("landingTime") != null && !request.getParameter("landingTime").isEmpty()) {
                     query += "AND arrival_times <= ? ";
@@ -105,7 +105,7 @@ pageEncoding="ISO-8859-1" import="com.cs336.pkg.*"%>
                 } else if (request.getParameter("sortDuration") != null) {
                     query += "ORDER BY duration " + sortOrder;
                 } else if (request.getParameter("sortTakeoffTime") != null) {
-                    query += "ORDER BY departure_times " + sortOrder;
+                    query += "ORDER BY departureTime " + sortOrder;
                 } else if (request.getParameter("sortLandingTime") != null) {
                     query += "ORDER BY arrival_times " + sortOrder;
                 }
@@ -152,12 +152,12 @@ pageEncoding="ISO-8859-1" import="com.cs336.pkg.*"%>
                     preparedStatement.setString(parameterIndex++, request.getParameter("landingTime"));
                 }
             } else {
-                query = "SELECT * FROM flightservices WHERE origin_airport = ? AND destination_airport = ? ";
+                query = "SELECT * FROM flightservices WHERE fromAirport = ? AND toAirport = ? ";
 
                 if (isFlexible) {
-                    query += "AND (departure_date BETWEEN ? AND DATE_ADD(?, INTERVAL 3 DAY)) ";
+                    query += "AND (departureDate BETWEEN ? AND DATE_ADD(?, INTERVAL 3 DAY)) ";
                 } else {
-                    query += "AND (departure_date = ?) ";
+                    query += "AND (departureDate = ?) ";
                 }
                 int parameterIndex = 4;
                 if (request.getParameter("numStops") != null && !request.getParameter("numStops").isEmpty()) {
@@ -170,7 +170,7 @@ pageEncoding="ISO-8859-1" import="com.cs336.pkg.*"%>
                     query += "AND (economy_fare <= ? OR business_fare <= ? OR first_class_fare <= ?) ";
                 }
                 if (request.getParameter("takeoffTime") != null && !request.getParameter("takeoffTime").isEmpty()) {
-                    query += "AND departure_times >= ? ";
+                    query += "AND departureTime >= ? ";
                 }
                 if (request.getParameter("landingTime") != null && !request.getParameter("landingTime").isEmpty()) {
                     query += "AND arrival_times <= ? ";
@@ -185,7 +185,7 @@ pageEncoding="ISO-8859-1" import="com.cs336.pkg.*"%>
                 } else if (request.getParameter("sortDuration") != null) {
                     query += "ORDER BY duration " + sortOrder;
                 } else if (request.getParameter("sortTakeoffTime") != null) {
-                    query += "ORDER BY departure_times " + sortOrder;
+                    query += "ORDER BY departureTime " + sortOrder;
                 } else if (request.getParameter("sortLandingTime") != null) {
                     query += "ORDER BY arrival_times " + sortOrder;
                 }
@@ -238,10 +238,10 @@ pageEncoding="ISO-8859-1" import="com.cs336.pkg.*"%>
                 <tr>
                     <td><%= rs.getString("flightNumber") %></td>
                     <td><%= rs.getString("AircraftID") %></td>
-                    <td><%= rs.getString("origin_airport") %></td>
-                    <td><%= rs.getString("destination_airport") %></td>
-                    <td><%= rs.getString("departure_date") %></td>
-                    <td><%= rs.getString("departure_times") %></td>
+                    <td><%= rs.getString("fromAirport") %></td>
+                    <td><%= rs.getString("toAirport") %></td>
+                    <td><%= rs.getString("departureDate") %></td>
+                    <td><%= rs.getString("departureTime") %></td>
                     <td><%= rs.getString("arrival_date") %></td>
                     <td><%= rs.getString("arrival_times") %></td>
                     <td><%= rs.getFloat("economy_fare") %></td>
@@ -254,9 +254,9 @@ pageEncoding="ISO-8859-1" import="com.cs336.pkg.*"%>
                     <td>
                         <form action="UserBookRes.jsp" method="post">
                             <input type="hidden" name="flightNumber" value="<%= rs.getString("flightNumber") %>" />
-                            <input type="hidden" name="origin_airport" value="<%= rs.getString("origin_airport") %>" />
-                            <input type="hidden" name="destination_airport" value="<%= rs.getString("destination_airport") %>" />
-                            <input type="hidden" name="departure_date" value="<%= rs.getString("departure_date") %>" />
+                            <input type="hidden" name="fromAirport" value="<%= rs.getString("fromAirport") %>" />
+                            <input type="hidden" name="toAirport" value="<%= rs.getString("toAirport") %>" />
+                            <input type="hidden" name="departureDate" value="<%= rs.getString("departureDate") %>" />
                             <input type="submit" value="Book Now" />
                         </form>
                     </td>

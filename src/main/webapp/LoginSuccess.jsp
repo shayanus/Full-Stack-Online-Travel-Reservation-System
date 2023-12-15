@@ -6,7 +6,7 @@
     <title>Login Successful</title>
 </head>
 <body>
-    <div class="container">
+    <div>
         <h2>Welcome, <%=session.getAttribute("user") %>! <a href="login.jsp">Login here</a>
 </p>
     </div>

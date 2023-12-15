@@ -35,16 +35,16 @@
         <label for="attribute">Select Attribute to Edit:</label>
         <select id="attribute" name="attribute">
             <option value="AircraftID">Aircraft ID</option>
-            <option value="origin_airport">Origin Airport</option>
-            <option value="destination_airport">Destination Airport</option>
+            <option value="fromAirport">Origin Airport</option>
+            <option value="toAirport">Destination Airport</option>
             <option value="economy_fare">Economy Fare</option>
             <option value="business_fare">Business Fare</option>
             <option value="first_class_fare">First Class Fare</option>
             <option value="airline">Airline</option>
             <option value="number_of_stops">Number of Stops</option>
             <option value="flight_type">Flight Type</option>
-            <option value="departure_date">Departure Date</option>
-            <option value="departure_times">Departure Times</option>
+            <option value="departureDate">Departure Date</option>
+            <option value="departureTime">Departure Times</option>
             <option value="arrival_date">Arrival Date</option>
             <option value="arrival_times">Arrival Times</option>
         </select>

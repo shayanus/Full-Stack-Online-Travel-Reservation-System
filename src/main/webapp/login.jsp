@@ -8,7 +8,7 @@
 
 </head>
 <body>
-    <div class="login-container">
+    <div>
         <h2>Login</h2>
         <form id="loginForm" action="login.jsp" method="post">
             <table>
@@ -38,7 +38,7 @@
         <p id="error">
             <%= (request.getAttribute("errorMessage") != null) ? request.getAttribute("errorMessage") : "" %>
         </p>
-        <div class="register-button">
+        <div>
             <a href="register.jsp">Register New User</a>
         </div>
     </div>

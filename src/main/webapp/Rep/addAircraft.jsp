@@ -6,7 +6,7 @@
     
 </head>
 <body>
-    <div class="add-aircraft-container">
+    <div>
         <h2>Add Aircraft</h2>
         <form id="addAircraftForm" action="addAircraft.jsp" method="post">
             <label for="aircraftID">Aircraft ID:</label>

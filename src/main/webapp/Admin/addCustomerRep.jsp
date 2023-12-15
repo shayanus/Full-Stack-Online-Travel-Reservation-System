@@ -8,7 +8,7 @@
     
 </head>
 <body>
-    <div class="add-customer-container">
+    <div>
         <h2>Add Rep</h2>
         <form id="addCustomerRepForm" action="addCustomerRep.jsp" method="post">
             <label for="username">Username:</label>

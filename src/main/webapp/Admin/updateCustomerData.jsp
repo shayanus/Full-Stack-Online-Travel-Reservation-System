@@ -35,34 +35,34 @@
 
                             if (rowsInsertedCustomer > 0) {
                                 %>
-                                <div class="success-message">
+                                <div>
                                     Customer data updated successfully.
                                 </div>
                                 <%
                             } else {
                                 %>
-                                <div class="error-message">
+                                <div>
                                     User data not updated. An error occurred while inserting into Customer table.
                                 </div>
                                 <%
                             }
                         } else {
                             %>
-                            <div class="error-message">
+                            <div>
                                 User data not updated. An error occurred while inserting into User table.
                             </div>
                             <%
                         }
                     } else {
                         %>
-                        <div class="error-message">
+                        <div>
                             User data not updated. An error occurred while deleting from User table.
                         </div>
                         <%
                     }
                 } else {
                     %>
-                    <div class="error-message">
+                    <div>
                         User data not updated. An error occurred while deleting from Customer table.
                     </div>
                     <%
@@ -70,14 +70,14 @@
             } catch (SQLException e) {
                 e.printStackTrace();
                 %>
-                <div class="error-message">
+                <div>
                     An error occurred while processing your request. Please try again later.
                 </div>
                 <%
             }
         } else {
             %>
-            <div class="error-message">
+            <div>
                 Parameters not provided.
             </div>
             <%

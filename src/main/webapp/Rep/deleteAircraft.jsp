@@ -5,7 +5,7 @@
     <title>Delete Aircraft - Flight Reservation System</title>    
 </head>
 <body>
-    <div class="delete-aircraft-container">
+    <div>
         <h2>Delete Aircraft</h2>
 
         <table border="1">

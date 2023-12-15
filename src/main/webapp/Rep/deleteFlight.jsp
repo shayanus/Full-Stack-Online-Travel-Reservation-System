@@ -41,10 +41,10 @@
                     <tr>
                         <td><%= rs.getString("flightNumber") %></td>
                         <td><%= rs.getString("AircraftID") %></td>
-                        <td><%= rs.getString("origin_airport") %></td>
-                        <td><%= rs.getString("destination_airport") %></td>
-                        <td><%= rs.getString("departure_date") %></td>
-                        <td><%= rs.getString("departure_times") %></td>
+                        <td><%= rs.getString("fromAirport") %></td>
+                        <td><%= rs.getString("toAirport") %></td>
+                        <td><%= rs.getString("departureDate") %></td>
+                        <td><%= rs.getString("departureTime") %></td>
                         <td><%= rs.getString("arrival_date") %></td>
                         <td><%= rs.getString("arrival_times") %></td>
                         <td><%= rs.getFloat("economy_fare") %></td>

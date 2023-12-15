@@ -32,20 +32,20 @@
 
                     if (rowsAffectedCustomer > 0) {
                         %>
-                        <div class="success-message">
+                        <div>
                             User data updated successfully.
                         </div>
                         <%
                     } else {
                         %>
-                        <div class="error-message">
+                        <div>
                             Customer data not updated. An error occurred.
                         </div>
                         <%
                     }
                 } else {
                     %>
-                    <div class="error-message">
+                    <div>
                         User data not updated. User ID not found in the User table.
                     </div>
                     <%
@@ -53,14 +53,14 @@
             } catch (SQLException e) {
                 e.printStackTrace();
                 %>
-                <div class="error-message">
+                <div>
                     An error occurred while processing your request. Please try again later.
                 </div>
                 <%
             }
         } else {
             %>
-            <div class="error-message">
+            <div>
                 Parameters not provided.
             </div>
             <%

@@ -7,7 +7,7 @@
     <title>Add Customer - Flight Reservation System</title>
 </head>
 <body>
-    <div class="add-customer-container">
+    <div>
         <h2>Add Customer</h2>
         <form id="addCustomerForm" action="addCustomer.jsp" method="post">
             <label for="username">Username:</label>

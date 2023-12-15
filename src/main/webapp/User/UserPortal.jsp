@@ -4,39 +4,39 @@
     <title>Flight Reservation System</title>
 </head>
 <body>
-    <div class="header">
+    <div>
         <h1>Welcome, <%= session.getAttribute("user") %></h1>
         <form action="../Logout.jsp" method="post">
-            <input type="submit" value="Logout" class="logout-button"/>
+            <input type="submit" value="Logout"/>
         </form>
 
-        <div class="faq-section">
-            <a href="faq.jsp" class="faq-button">Questions and Answers Section</a>
+        <div>
+            <a href="faq.jsp">Questions and Answers Section</a>
         </div>
     </div>
 
-    <div class="search-section">
-        <a href="searchFlights.jsp" class="search-button">Search Flights</a>
+    <div>
+        <a href="searchFlights.jsp">Search Flights</a>
     </div>
     </div>
 
-    <div class="reservations">
+    <div>
         <div>
             <h3>Book Reservations</h3>
-            <div class="search-section">
-                <a href="UserBookRes.jsp" class="search-button">Book a Reservation</a>
+            <div>
+                <a href="UserBookRes.jsp">Book a Reservation</a>
             </div>
         </div>
         <div>
             <h3>Past Reservations</h3>
-            <div class="search-section">
-                <a href="UserPastRes.jsp" class="search-button">View Past Reservations</a>
+            <div>
+                <a href="UserPastRes.jsp">View Past Reservations</a>
             </div>
         </div>
         <div>
             <h3>Upcoming Tickets</h3>
-            <div class="search-section">
-                <a href="UserFutureRes.jsp" class="search-button">View Upcoming Reservations</a>
+            <div>
+                <a href="UserFutureRes.jsp">View Upcoming Reservations</a>
             </div>
         </div>
     </div>

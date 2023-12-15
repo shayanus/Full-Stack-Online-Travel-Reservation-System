@@ -69,20 +69,20 @@
 
                     if (rowsAffectedUser > 0) {
                         %>
-                        <div class="success-message">
+                        <div>
                             Customer records deleted successfully. Refresh Page to see changes
                         </div>
                         <%
                     } else {
                         %>
-                        <div class="error-message">
+                        <div>
                             Customer record not deleted. An error occurred.
                         </div>
                         <%
                     }
                 } else {
                     %>
-                    <div class="error-message">
+                    <div>
                         No records deleted. User ID not found in the Customer table.
                     </div>
                     <%
@@ -90,14 +90,14 @@
             } catch (SQLException e) {
                 e.printStackTrace();
                 %>
-                <div class="error-message">
+                <div>
                     An error occurred while processing your request. Please try again later.
                 </div>
                 <%
             }
         } else {
             %>
-            <div class="error-message">
+            <div>
                 No user selected
             </div>
             <%

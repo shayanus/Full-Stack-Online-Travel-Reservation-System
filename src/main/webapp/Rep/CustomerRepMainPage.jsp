@@ -9,13 +9,13 @@
     
 </head>
 <body>
-    <div class="header">
+    <div>
         <h1>Representative Dashboard</h1>
     </div>
     <button onclick="location.href='../Logout.jsp'">Log out</button>
     
-    <div class="container">
-        <div class="functionality-block">
+    <div>
+        <div>
             <h2>Reservation Management</h2>
             <ul>
                 <li><a href="makeCustomerReservation.jsp">Make Flight Reservation</a></li>
@@ -24,7 +24,7 @@
             </ul>
         </div>
         
-        <div class="functionality-block">
+        <div>
             <h2>Aircraft & Flight Management</h2>
             <ul>
                 <li><a href="addAircraft.jsp">Add Aircraft</a></li>
@@ -37,7 +37,7 @@
             </ul>
         </div>
         
-        <div class="functionality-block">
+        <div>
             <h2>Reporting & Lists</h2>
             <ul>
                 <li><a href="CustomerRepWaitList.jsp">Passengers on Waiting List</a></li>

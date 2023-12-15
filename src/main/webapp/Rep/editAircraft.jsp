@@ -6,7 +6,7 @@
     
 </head>
 <body>
-    <div class="edit-aircraft-container">
+    <div>
         <h2>Edit Aircraft</h2>
 
         <table>

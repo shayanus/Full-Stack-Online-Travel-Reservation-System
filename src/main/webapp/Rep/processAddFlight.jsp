@@ -45,9 +45,9 @@
                 long durationMillis = arrivalTime.getTime() - departureTime.getTime();
                 Time duration = new Time(durationMillis);
 
-                int x = statement.executeUpdate("INSERT INTO flightservices(flightNumber, AircraftID, origin_airport, destination_airport, " +
+                int x = statement.executeUpdate("INSERT INTO flightservices(flightNumber, AircraftID, fromAirport, toAirport, " +
                         "economy_fare, business_fare, first_class_fare, airline, number_of_stops, flight_type, " +
-                        "departure_date, departure_times, arrival_date, arrival_times, duration) " +
+                        "departureDate, departureTime, arrival_date, arrival_times, duration) " +
                         "VALUES('" + flightNumber + "', '" + aircraftID + "', '" + originAirport + "', '" + destinationAirport + "', " +
                         "'" + economyFare + "', '" + businessFare + "', '" + firstClassFare + "', '" + airline + "', " +
                         "'" + numStops + "', '" + flightType + "', '" + departureDate + "', '" + departureTimes + "', " +

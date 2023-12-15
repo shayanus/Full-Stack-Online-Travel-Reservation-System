@@ -9,14 +9,14 @@
     
 </head>
 <body>
-    <div class="header">
+    <div>
         <h1>Admin Dashboard</h1>
     </div>
     <button onclick="location.href='../Logout.jsp'">Log out</button>
     
     
-    <div class="container">
-        <div class="admin-option">
+    <div>
+        <div>
             <h2>Customer Management</h2>
             <ul>
                 <li><a href="addCustomer.jsp">Add Customer</a></li>
@@ -31,7 +31,7 @@
             </ul>
         </div>
         
-        <div class="admin-option">
+        <div>
             <h2>Reporting</h2>
             <ul>
                 <li><a href="salesReport.jsp">Sales Report</a></li>

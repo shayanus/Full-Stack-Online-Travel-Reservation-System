@@ -1,5 +1,3 @@
-CREATE DATABASE  IF NOT EXISTS `travelsystem` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
-USE `travelsystem`;
 -- MySQL dump 10.13  Distrib 8.0.34, for Win64 (x86_64)
 --
 -- Host: localhost    Database: travelsystem
@@ -9,7 +7,7 @@ USE `travelsystem`;
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!50503 SET NAMES utf8 */;
+/*!50503 SET NAMES utf8mb4 */;
 /*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
 /*!40103 SET TIME_ZONE='+00:00' */;
 /*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
@@ -38,7 +36,7 @@ CREATE TABLE `account` (
 
 LOCK TABLES `account` WRITE;
 /*!40000 ALTER TABLE `account` DISABLE KEYS */;
-INSERT INTO `account` VALUES ('User1','password',NULL),('User2','password',NULL);
+INSERT INTO `account` VALUES ('Acc001','user1@example.com','FL001, FL002'),('Acc002','user2@example.com','FL003, FL004');
 /*!40000 ALTER TABLE `account` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -71,6 +69,7 @@ CREATE TABLE `adminticket` (
 
 LOCK TABLES `adminticket` WRITE;
 /*!40000 ALTER TABLE `adminticket` DISABLE KEYS */;
+INSERT INTO `adminticket` VALUES (1,'12A',300,50,'2023-01-15 10:00:00','John Doe','John','Doe','Economy',1,20);
 /*!40000 ALTER TABLE `adminticket` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -105,6 +104,7 @@ CREATE TABLE `adminticketflightassociatedwith` (
 
 LOCK TABLES `adminticketflightassociatedwith` WRITE;
 /*!40000 ALTER TABLE `adminticketflightassociatedwith` DISABLE KEYS */;
+INSERT INTO `adminticketflightassociatedwith` VALUES (1,'FL001','LAX','JFK','2023-01-20','08:00:00');
 /*!40000 ALTER TABLE `adminticketflightassociatedwith` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -139,6 +139,7 @@ CREATE TABLE `admintickets` (
 
 LOCK TABLES `admintickets` WRITE;
 /*!40000 ALTER TABLE `admintickets` DISABLE KEYS */;
+INSERT INTO `admintickets` VALUES (1,'FL001','LAX','JFK','2023-01-20','08:00:00');
 /*!40000 ALTER TABLE `admintickets` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -163,7 +164,7 @@ CREATE TABLE `aircraft` (
 
 LOCK TABLES `aircraft` WRITE;
 /*!40000 ALTER TABLE `aircraft` DISABLE KEYS */;
-INSERT INTO `aircraft` VALUES ('A001',150,'Monday,Wednesday,Friday'),('A002',200,'Tuesday,Thursday,Saturday,Sunday'),('A003',180,'Monday,Tuesday,Wednesday,Thursday,Friday,Saturday,Sunday'),('A004',160,'Monday,Thursday,Saturday'),('A005',190,'Tuesday,Friday,Sunday'),('A006',170,'Monday,Tuesday,Thursday,Saturday,Sunday'),('A007',220,'Wednesday,Saturday,Sunday'),('A008',140,'Tuesday,Wednesday,Friday,Saturday'),('A009',210,'Monday,Wednesday,Saturday,Sunday'),('A010',180,'Tuesday,Thursday,Sunday'),('A011',150,'Monday,Wednesday,Friday,Saturday'),('A012',190,'Tuesday,Thursday,Sunday'),('A013',180,'Monday,Wednesday,Saturday,Sunday'),('A014',170,'Tuesday,Thursday,Friday,Sunday'),('A015',200,'Monday,Wednesday,Friday,Sunday');
+INSERT INTO `aircraft` VALUES ('AC001',200,'Mon,Wed,Fri'),('AC002',150,'Tue,Thu,Sat');
 /*!40000 ALTER TABLE `aircraft` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -190,7 +191,7 @@ CREATE TABLE `airlineairportassociatedwith` (
 
 LOCK TABLES `airlineairportassociatedwith` WRITE;
 /*!40000 ALTER TABLE `airlineairportassociatedwith` DISABLE KEYS */;
-INSERT INTO `airlineairportassociatedwith` VALUES ('DFW','AA'),('JFK','AA'),('LHR','BA'),('ATL','DL'),('LAX','DL'),('DXB','EK'),('EWR','UA'),('ORD','UA'),('PEK','UA'),('SFO','UA');
+INSERT INTO `airlineairportassociatedwith` VALUES ('LAX','AA'),('JFK','BA');
 /*!40000 ALTER TABLE `airlineairportassociatedwith` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -213,7 +214,7 @@ CREATE TABLE `airlinecompany` (
 
 LOCK TABLES `airlinecompany` WRITE;
 /*!40000 ALTER TABLE `airlinecompany` DISABLE KEYS */;
-INSERT INTO `airlinecompany` VALUES ('AA'),('AF'),('BA'),('DL'),('EK'),('LH'),('QF'),('SQ'),('UA');
+INSERT INTO `airlinecompany` VALUES ('AA'),('AL'),('BA'),('BL');
 /*!40000 ALTER TABLE `airlinecompany` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -236,7 +237,7 @@ CREATE TABLE `airport` (
 
 LOCK TABLES `airport` WRITE;
 /*!40000 ALTER TABLE `airport` DISABLE KEYS */;
-INSERT INTO `airport` VALUES ('AMD'),('AMS'),('ARN'),('ATL'),('AUH'),('BCN'),('BLR'),('BOM'),('BOS'),('BWI'),('CAN'),('CCU'),('CDG'),('CLT'),('COK'),('CPH'),('CTU'),('DCA'),('DEL'),('DEN'),('DFW'),('DMM'),('DOH'),('DTW'),('DUB'),('DXB'),('EWR'),('FCO'),('FLL'),('FRA'),('GOI'),('HEL'),('HKG'),('HNL'),('HYD'),('IAD'),('IAH'),('IST'),('JED'),('JFK'),('KMG'),('LAS'),('LAX'),('LGA'),('LHR'),('MAA'),('MAD'),('MCO'),('MDW'),('MIA'),('MSP'),('MUC'),('ORD'),('OSL'),('PDX'),('PEK'),('PHX'),('PNQ'),('PVG'),('RUH'),('SAN'),('SEA'),('SFO'),('SHA'),('SLC'),('SVO'),('SZX'),('TPA'),('XIY'),('ZRH');
+INSERT INTO `airport` VALUES ('ATL'),('EWR'),('JFK'),('LAX'),('LHR');
 /*!40000 ALTER TABLE `airport` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -266,6 +267,7 @@ CREATE TABLE `assists` (
 
 LOCK TABLES `assists` WRITE;
 /*!40000 ALTER TABLE `assists` DISABLE KEYS */;
+INSERT INTO `assists` VALUES ('user1','user2','Yes','General Inquiry','Yes');
 /*!40000 ALTER TABLE `assists` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -290,7 +292,7 @@ CREATE TABLE `customer` (
 
 LOCK TABLES `customer` WRITE;
 /*!40000 ALTER TABLE `customer` DISABLE KEYS */;
-INSERT INTO `customer` VALUES ('CUST123','Alice Johnson'),('CUST234','George White'),('CUST345','Olivia Davis'),('CUST456','Bob Smith'),('CUST567','Sophia Brown'),('CUST678','William Taylor'),('CUST789','Eva Davis'),('CUST890','Michael Miller'),('CUST901','Emma Wilson'),('test','test'),('test1','test1');
+INSERT INTO `customer` VALUES ('user1','Cust001');
 /*!40000 ALTER TABLE `customer` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -315,7 +317,7 @@ CREATE TABLE `customerrepresentative` (
 
 LOCK TABLES `customerrepresentative` WRITE;
 /*!40000 ALTER TABLE `customerrepresentative` DISABLE KEYS */;
-INSERT INTO `customerrepresentative` VALUES ('Rep1','Rep1'),('Rep3','Rep3');
+INSERT INTO `customerrepresentative` VALUES ('user2','Rep001');
 /*!40000 ALTER TABLE `customerrepresentative` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -359,6 +361,7 @@ CREATE TABLE `customersearchesfor` (
 
 LOCK TABLES `customersearchesfor` WRITE;
 /*!40000 ALTER TABLE `customersearchesfor` DISABLE KEYS */;
+INSERT INTO `customersearchesfor` VALUES ('user1','2023-02-15',1,'FL001','AA','08:00:00','12:00:00',0,150,'LAX','JFK','domestic','04:00:00');
 /*!40000 ALTER TABLE `customersearchesfor` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -388,6 +391,7 @@ CREATE TABLE `departurearrival` (
 
 LOCK TABLES `departurearrival` WRITE;
 /*!40000 ALTER TABLE `departurearrival` DISABLE KEYS */;
+INSERT INTO `departurearrival` VALUES ('FL001','LAX','JFK'),('FL002','LHR','LAX');
 /*!40000 ALTER TABLE `departurearrival` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -412,7 +416,7 @@ CREATE TABLE `faq` (
 
 LOCK TABLES `faq` WRITE;
 /*!40000 ALTER TABLE `faq` DISABLE KEYS */;
-INSERT INTO `faq` VALUES (2,'How do I make a booking?','Use the search page to look for your desired flight. There should be a book now button next to the flight which will take you to the booking page with the flight details. ');
+INSERT INTO `faq` VALUES (1,'How do I book a flight?','You can book a flight through our website.'),(2,'What is the baggage allowance?','Each passenger is allowed one carry-on bag and one personal item.');
 /*!40000 ALTER TABLE `faq` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -426,16 +430,16 @@ DROP TABLE IF EXISTS `flightservices`;
 CREATE TABLE `flightservices` (
   `flightNumber` varchar(5) NOT NULL,
   `AircraftID` varchar(10) DEFAULT NULL,
-  `origin_airport` varchar(3) NOT NULL,
-  `destination_airport` varchar(3) NOT NULL,
+  `fromAirport` varchar(3) NOT NULL,
+  `toAirport` varchar(3) NOT NULL,
   `economy_fare` float DEFAULT NULL,
   `business_fare` float DEFAULT NULL,
   `first_class_fare` float DEFAULT NULL,
   `airline` varchar(2) DEFAULT NULL,
   `number_of_stops` int DEFAULT NULL,
   `flight_type` enum('domestic','international') NOT NULL DEFAULT 'domestic',
-  `departure_date` date DEFAULT NULL,
-  `departure_times` time DEFAULT NULL,
+  `departureDate` date DEFAULT NULL,
+  `departureTime` time DEFAULT NULL,
   `arrival_date` date DEFAULT NULL,
   `arrival_times` time DEFAULT NULL,
   `duration` time DEFAULT NULL,
@@ -452,7 +456,7 @@ CREATE TABLE `flightservices` (
 
 LOCK TABLES `flightservices` WRITE;
 /*!40000 ALTER TABLE `flightservices` DISABLE KEYS */;
-INSERT INTO `flightservices` VALUES ('F001','A002','EWR','LAX',300,600,1000,'AA',0,'domestic','2023-12-07','12:30:00','2023-12-07','18:30:00','06:00:00',0),('F002','A011','LAX','EWR',200,400,1100,'AA',1,'domestic','2023-12-09','08:30:00','2023-12-09','18:30:00','10:00:00',0),('F003','A003','EWR','AMS',500,900,1500,'BA',1,'international','2023-12-13','07:30:00','2023-12-13','14:30:00','02:00:00',1),('F011','A014','EWR','LAX',300,600,1000,'AA',0,'domestic','2023-12-17','12:30:00','2023-12-17','18:30:00','06:00:00',0),('F012','A015','LAX','EWR',200,400,1100,'AA',1,'domestic','2023-12-19','08:30:00','2023-12-19','18:30:00','10:00:00',0),('F013','A013','EWR','AMS',500,900,1500,'BA',1,'international','2023-12-23','07:30:00','2023-12-23','14:30:00','02:00:00',1),('F014','A014','EWR','LAX',250,500,800,'AA',0,'domestic','2023-12-21','15:30:00','2023-12-21','21:30:00','06:00:00',0),('F015','A015','LAX','EWR',260,520,820,'DL',1,'domestic','2023-12-22','16:30:00','2023-12-22','22:30:00','06:00:00',0),('F016','A016','EWR','AMS',300,600,900,'BA',0,'international','2023-12-23','17:30:00','2023-12-24','07:30:00','14:30:00',0),('F100','A001','EWR','LAX',250,500,800,'AA',0,'domestic','2023-12-11','15:30:00','2023-12-11','21:30:00','06:00:00',0),('F101','A002','LAX','EWR',260,520,820,'DL',1,'domestic','2023-12-12','16:30:00','2023-12-12','22:30:00','06:00:00',0),('F102','A003','EWR','AMS',300,600,900,'BA',0,'international','2023-12-13','17:30:00','2023-12-14','07:30:00','14:30:00',0);
+INSERT INTO `flightservices` VALUES ('F001','AC001','EWR','ATL',200,400,500,'UA',0,'domestic','2023-12-16','00:00:00','2023-12-17','00:00:00','19:00:00',NULL),('FL001','AC001','LAX','JFK',150,300,450,'AA',0,'domestic','2023-01-20','08:00:00','2023-01-20','12:00:00','04:00:00',0),('FL002','AC002','LHR','LAX',200,400,600,'BA',1,'international','2023-01-22','09:00:00','2023-01-22','15:00:00','06:00:00',0);
 /*!40000 ALTER TABLE `flightservices` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -483,6 +487,7 @@ CREATE TABLE `getrevenuesummary` (
 
 LOCK TABLES `getrevenuesummary` WRITE;
 /*!40000 ALTER TABLE `getrevenuesummary` DISABLE KEYS */;
+INSERT INTO `getrevenuesummary` VALUES ('admin1','Admin001','AA','Monthly report details','Cust001','FL001, FL002');
 /*!40000 ALTER TABLE `getrevenuesummary` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -509,6 +514,7 @@ CREATE TABLE `ifnoseat` (
 
 LOCK TABLES `ifnoseat` WRITE;
 /*!40000 ALTER TABLE `ifnoseat` DISABLE KEYS */;
+INSERT INTO `ifnoseat` VALUES (1,'Acc001'),(2,'Acc002');
 /*!40000 ALTER TABLE `ifnoseat` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -547,6 +553,7 @@ CREATE TABLE `list` (
 
 LOCK TABLES `list` WRITE;
 /*!40000 ALTER TABLE `list` DISABLE KEYS */;
+INSERT INTO `list` VALUES ('FL001','AA','admin1','user2','user1',1,1,1);
 /*!40000 ALTER TABLE `list` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -573,6 +580,7 @@ CREATE TABLE `onewayticket` (
 
 LOCK TABLES `onewayticket` WRITE;
 /*!40000 ALTER TABLE `onewayticket` DISABLE KEYS */;
+INSERT INTO `onewayticket` VALUES (1,'FL001'),(2,'FL002');
 /*!40000 ALTER TABLE `onewayticket` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -599,6 +607,7 @@ CREATE TABLE `operates` (
 
 LOCK TABLES `operates` WRITE;
 /*!40000 ALTER TABLE `operates` DISABLE KEYS */;
+INSERT INTO `operates` VALUES ('AA','FL001'),('BA','FL002');
 /*!40000 ALTER TABLE `operates` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -625,7 +634,7 @@ CREATE TABLE `owns` (
 
 LOCK TABLES `owns` WRITE;
 /*!40000 ALTER TABLE `owns` DISABLE KEYS */;
-INSERT INTO `owns` VALUES ('BA','A320'),('SQ','A330'),('QF','A340'),('UA','A350'),('LH','A380'),('AA','B737'),('AF','B747'),('CX','B767'),('DL','B777'),('EK','B787');
+INSERT INTO `owns` VALUES ('AA','AC001'),('BA','AC002');
 /*!40000 ALTER TABLE `owns` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -652,7 +661,7 @@ CREATE TABLE `reservations` (
   KEY `customerID` (`customerID`),
   CONSTRAINT `reservations_ibfk_1` FOREIGN KEY (`flightNumber`) REFERENCES `flightservices` (`flightNumber`),
   CONSTRAINT `reservations_ibfk_2` FOREIGN KEY (`customerID`) REFERENCES `customer` (`UserID`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -661,7 +670,7 @@ CREATE TABLE `reservations` (
 
 LOCK TABLES `reservations` WRITE;
 /*!40000 ALTER TABLE `reservations` DISABLE KEYS */;
-INSERT INTO `reservations` VALUES (1,'F001','CUST123','Alice Johnson','2023-12-15','Economy','Confirmed','12A',300.00,'2023-11-01 10:30:00'),(2,'F002','CUST456','Bob Smith','2023-12-16','Business','Pending','8B',500.00,'2023-11-02 12:45:00'),(3,'F003','CUST789','Eva Davis','2023-12-17','First Class','Confirmed','1C',800.00,'2023-11-03 15:20:00'),(4,'F004','CUST234','George White','2023-12-18','Economy','Confirmed','15D',350.00,'2023-11-04 09:15:00'),(5,'F005','CUST567','Sophia Brown','2023-12-19','Business','Pending','5A',550.00,'2023-11-05 14:30:00'),(6,'F006','CUST890','Michael Miller','2023-12-20','First Class','Confirmed','3B',850.00,'2023-11-06 17:45:00'),(7,'F007','CUST345','Olivia Davis','2023-12-21','Economy','Confirmed','9C',320.00,'2023-11-07 11:00:00'),(8,'F008','CUST678','William Taylor','2023-12-22','Business','Pending','7D',600.00,'2023-11-08 16:15:00'),(9,'F009','CUST901','Emma Wilson','2023-12-23','First Class','Confirmed','2A',880.00,'2023-11-09 19:30:00'),(10,'F010','CUST456','James Johnson','2023-12-24','Economy','Confirmed','11B',310.00,'2023-11-10 13:45:00');
+INSERT INTO `reservations` VALUES (1,'FL001','user1','John Doe','2023-01-15','Economy','Confirmed','12A',150.00,'2023-01-10 09:00:00'),(2,'FL002','user1','John Doe','2023-01-22','Business','Pending','12B',300.00,'2023-01-12 10:00:00');
 /*!40000 ALTER TABLE `reservations` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -691,6 +700,7 @@ CREATE TABLE `roundtripticket` (
 
 LOCK TABLES `roundtripticket` WRITE;
 /*!40000 ALTER TABLE `roundtripticket` DISABLE KEYS */;
+INSERT INTO `roundtripticket` VALUES (1,'FL001','FL002');
 /*!40000 ALTER TABLE `roundtripticket` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -715,7 +725,7 @@ CREATE TABLE `siteadmin` (
 
 LOCK TABLES `siteadmin` WRITE;
 /*!40000 ALTER TABLE `siteadmin` DISABLE KEYS */;
-INSERT INTO `siteadmin` VALUES ('ad','ad'),('Admin1','Admin1'),('admin3','admin3');
+INSERT INTO `siteadmin` VALUES ('admin1','Admin001');
 /*!40000 ALTER TABLE `siteadmin` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -735,7 +745,7 @@ CREATE TABLE `ticket` (
   `last_name` varchar(25) DEFAULT NULL,
   `class` varchar(10) DEFAULT NULL,
   PRIMARY KEY (`ticketNumber`)
-) ENGINE=InnoDB AUTO_INCREMENT=543255578 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -744,7 +754,7 @@ CREATE TABLE `ticket` (
 
 LOCK TABLES `ticket` WRITE;
 /*!40000 ALTER TABLE `ticket` DISABLE KEYS */;
-INSERT INTO `ticket` VALUES (0,'NUL',44.3,'0000-00-00 00:00:00','test','test','business'),(547,NULL,20.5,'2023-12-13 20:06:51','test','test','business'),(548,NULL,20.5,'2023-12-13 20:15:41','test','test','business'),(549,NULL,20.5,'2023-12-13 20:15:46','test','test','business'),(550,NULL,20.5,'2023-12-13 20:15:49','test','test','business'),(777,NULL,20.5,'2023-12-13 20:50:35','test','test','economy'),(888,NULL,20.5,'2023-12-13 20:56:44','test','trtafga','economy'),(4000,NULL,20.5,'2023-12-13 20:19:40','test','hello','economy'),(5000,NULL,20.5,'2023-12-13 20:24:04','test','hello','economy'),(7000,NULL,20.5,'2023-12-13 20:27:02','test','hello','economy'),(8500,NULL,20.5,'2023-12-13 20:31:35','test','hello','economy'),(9000,NULL,20.5,'2023-12-13 20:27:30','test','hello','economy'),(9500,NULL,20.5,'2023-12-13 20:30:46','test','hello','economy'),(54356,NULL,20.5,'2023-12-13 20:15:51','test','test','business'),(543556,NULL,20.5,'2023-12-13 20:16:10','test','test','business'),(54355556,NULL,20.5,'2023-12-13 20:17:15','test','test','economy'),(543255556,NULL,20.5,'2023-12-13 20:17:56','test','test','economy'),(543255557,NULL,20.5,'2023-12-13 20:44:16','test','test','economy'),(543255558,NULL,20.5,'2023-12-13 20:45:27','test','test','economy'),(543255559,NULL,20.5,'2023-12-13 20:46:09','test','test','economy'),(543255560,NULL,20.5,'2023-12-13 20:49:40','test','test','economy'),(543255561,NULL,20.5,'2023-12-13 20:49:57','test','test','economy'),(543255562,NULL,44.3,'0000-00-00 00:00:00','test','test','business'),(543255563,NULL,20.5,'2023-12-13 21:17:49','test','test','economy'),(543255564,NULL,20.5,'2023-12-13 21:17:55','test','test','economy'),(543255565,NULL,20.5,'2023-12-13 21:21:54','hello','bye','economy'),(543255566,NULL,20.5,'2023-12-13 21:32:07','hello','bye','economy'),(543255567,NULL,20.5,'2023-12-13 21:32:37','hello','bye','economy'),(543255568,NULL,20.5,'2023-12-13 21:35:08','hello','bye','economy'),(543255569,NULL,20.5,'2023-12-13 21:35:23','hello','bye','economy'),(543255570,NULL,20.5,'2023-12-13 21:35:26','hello','bye','economy'),(543255571,NULL,20.5,'2023-12-13 21:35:35','hello','bye','economy'),(543255572,NULL,20.5,'2023-12-13 21:35:46','hello','bye','economy'),(543255573,NULL,20.5,'2023-12-13 21:35:51','hello','bye','economy'),(543255574,NULL,20.5,'2023-12-13 21:39:09','hello','bye','economy'),(543255575,NULL,20.5,'2023-12-13 22:12:29','tes','hellooo','economy'),(543255576,NULL,20.5,'2023-12-13 23:04:05','Joe','Lynch','economy'),(543255577,NULL,20.5,'2023-12-13 23:20:23','test','test','economy');
+INSERT INTO `ticket` VALUES (1,'12A',300,'2023-01-15 10:00:00','John','Doe','Economy'),(2,'12B',450,'2023-01-16 11:00:00','Jane','Doe','Business'),(3,NULL,20.5,'2023-12-14 17:09:20','Johnny','Test','economy');
 /*!40000 ALTER TABLE `ticket` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -777,7 +787,7 @@ CREATE TABLE `ticketadmin` (
 
 LOCK TABLES `ticketadmin` WRITE;
 /*!40000 ALTER TABLE `ticketadmin` DISABLE KEYS */;
-INSERT INTO `ticketadmin` VALUES (1001,NULL,150,NULL,'2023-03-15 10:30:00',NULL,NULL,NULL,NULL,NULL,NULL),(1002,NULL,200,NULL,'2023-03-16 11:00:00',NULL,NULL,NULL,NULL,NULL,NULL),(1010,NULL,300,NULL,'2023-01-01 10:00:00','Alice Johnson',NULL,NULL,'Economy',NULL,NULL),(1011,NULL,300,NULL,'2023-01-02 10:00:00','Bob Smith',NULL,NULL,'Economy',NULL,NULL),(1012,NULL,300,NULL,'2023-01-03 10:00:00','Catherine White',NULL,NULL,'Economy',NULL,NULL),(1013,NULL,300,NULL,'2023-01-04 10:00:00','David Hill',NULL,NULL,'Economy',NULL,NULL),(1015,NULL,350,NULL,'2023-01-06 10:00:00','Frank Smith',NULL,NULL,'Economy',NULL,NULL),(1016,NULL,350,NULL,'2023-01-07 10:00:00','Grace Stone',NULL,NULL,'Economy',NULL,NULL),(1017,NULL,350,NULL,'2023-01-08 10:00:00','Henry Sand',NULL,NULL,'Economy',NULL,NULL);
+INSERT INTO `ticketadmin` VALUES (1,'12A',300,30,'2023-01-15 10:00:00','John Doe','John','Doe','Economy',1,20),(2,'12B',450,45,'2023-01-16 11:00:00','Jane Doe','Jane','Doe','Business',0,30);
 /*!40000 ALTER TABLE `ticketadmin` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -811,7 +821,7 @@ CREATE TABLE `ticketflightassociatedwith` (
 
 LOCK TABLES `ticketflightassociatedwith` WRITE;
 /*!40000 ALTER TABLE `ticketflightassociatedwith` DISABLE KEYS */;
-INSERT INTO `ticketflightassociatedwith` VALUES (7000,'F100',NULL,NULL,NULL),(8500,'F100',NULL,NULL,NULL),(543255563,'F100',NULL,NULL,NULL),(543255564,'F100',NULL,NULL,NULL),(543255565,'F001',NULL,NULL,NULL),(543255566,'F001',NULL,NULL,NULL),(543255567,'F001',NULL,NULL,NULL),(543255568,'F001',NULL,NULL,NULL),(543255569,'F001',NULL,NULL,NULL),(543255570,'F001',NULL,NULL,NULL),(543255571,'F001',NULL,NULL,NULL),(543255572,'F001',NULL,NULL,NULL),(543255573,'F001',NULL,NULL,NULL),(543255574,'F001',NULL,NULL,NULL),(543255575,'F001',NULL,NULL,NULL),(543255576,'F001',NULL,NULL,NULL),(543255577,'F001',NULL,NULL,NULL);
+INSERT INTO `ticketflightassociatedwith` VALUES (1,'FL001','LAX','JFK','2023-01-20'),(3,'FL001','LAX','JFK','2023-01-20');
 /*!40000 ALTER TABLE `ticketflightassociatedwith` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -839,6 +849,7 @@ CREATE TABLE `transaction` (
 
 LOCK TABLES `transaction` WRITE;
 /*!40000 ALTER TABLE `transaction` DISABLE KEYS */;
+INSERT INTO `transaction` VALUES ('Acc001',1,1),('Acc002',2,1);
 /*!40000 ALTER TABLE `transaction` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -855,8 +866,8 @@ CREATE TABLE `transactionadmin` (
   `seatAvailable` tinyint(1) DEFAULT NULL,
   PRIMARY KEY (`accountID`,`ticketnumber`),
   KEY `ticketNumber` (`ticketnumber`),
-  CONSTRAINT `transactionAdmin_ibfk_1` FOREIGN KEY (`accountID`) REFERENCES `account` (`accountID`),
-  CONSTRAINT `transactionAdmin_ibfk_2` FOREIGN KEY (`ticketnumber`) REFERENCES `ticketadmin` (`ticketnumber`)
+  CONSTRAINT `transactionadmin_ibfk_1` FOREIGN KEY (`accountID`) REFERENCES `account` (`accountID`),
+  CONSTRAINT `transactionadmin_ibfk_2` FOREIGN KEY (`ticketnumber`) REFERENCES `ticketadmin` (`ticketnumber`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -866,7 +877,7 @@ CREATE TABLE `transactionadmin` (
 
 LOCK TABLES `transactionadmin` WRITE;
 /*!40000 ALTER TABLE `transactionadmin` DISABLE KEYS */;
-INSERT INTO `transactionadmin` VALUES ('Customer1',74544647,1),('Customer10',74544656,1),('Customer2',74544648,1),('Customer3',74544649,0),('Customer4',74544650,1),('Customer5',74544651,0),('Customer6',74544652,1),('Customer7',74544653,1),('Customer8',74544654,0),('Customer9',74544655,1);
+INSERT INTO `transactionadmin` VALUES ('Acc001',1,1),('Acc002',2,1);
 /*!40000 ALTER TABLE `transactionadmin` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -891,7 +902,7 @@ CREATE TABLE `user` (
 
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` VALUES ('ad','min','SiteAdmin'),('admin','admin_password','SiteAdmin'),('admin1','test','SiteAdmin'),('admin3','test','SiteAdmin'),('customer1','customer1_password','Customer'),('customer2','customer2_password','Customer'),('customer3','customer3_password','Customer'),('employee1','employee1_password','SiteAdmin'),('manager','manager_password','SiteAdmin'),('null','null','null'),('rep1','rep1_password','CustomerRepresentative'),('rep2','rep2_password','CustomerRepresentative'),('test','test','Customer'),('test1','test','Customer');
+INSERT INTO `user` VALUES ('admin1','adminpass','SiteAdmin'),('user1','password1','Customer'),('user2','password2','CustomerRepresentative');
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -920,7 +931,7 @@ CREATE TABLE `waitinglist` (
 
 LOCK TABLES `waitinglist` WRITE;
 /*!40000 ALTER TABLE `waitinglist` DISABLE KEYS */;
-INSERT INTO `waitinglist` VALUES ('Customer1',1,NULL,NULL);
+INSERT INTO `waitinglist` VALUES ('Acc001',1,1,0),('Acc002',2,2,0);
 /*!40000 ALTER TABLE `waitinglist` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -933,4 +944,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-12-13 23:49:40
+-- Dump completed on 2023-12-14 21:36:47
