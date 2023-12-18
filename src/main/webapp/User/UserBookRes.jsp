@@ -24,9 +24,9 @@
         if ("book".equals(action)) {
             
             String seatNumber = request.getParameter("seatNumber");
-            double totalFare = 20.5;
+            double totalFare = 50.0;
             String classType = request.getParameter("classType");
-            String classTypeParsed = classType.equalsIgnoreCase("economy") ? "Economy" : classType.equalsIgnoreCase("business") ? "Business" : classType.equalsIgnoreCase("first_class") ? "First Class" : classType;
+            String classTypeParsed = classType.equalsIgnoreCase("economy") ? "Economy" : classType.equalsIgnoreCase("business") ? "Business" : classType.equalsIgnoreCase("first_class") ? "First" : classType;
             
             String firstName = request.getParameter("firstName");
             String lastName = request.getParameter("lastName");
@@ -63,7 +63,7 @@
                 pstmt.setDouble(1, totalFare);
                 pstmt.setString(2, firstName);
                 pstmt.setString(3, lastName);
-                pstmt.setString(4, classType);
+                pstmt.setString(4, classTypeParsed);
                 pstmt.executeUpdate();
     
                 String checkFlight = "SELECT is_full FROM flightservices WHERE flightNumber = ?";
@@ -96,12 +96,13 @@
                 } else {
                     String insertWaitingList = "INSERT INTO waitinglist (accountID, TicketNumber) VALUES (?, ?)";
                     pstmt = con.prepareStatement(insertWaitingList);
-                    pstmt.setString(1, "Customer1"); 
+                    pstmt.setString(1, "Acc001"); 
+                    pstmt.setInt(2, ticketNumber); 
                     pstmt.executeUpdate();
-                    out.println("<h2>There are currently no available seats for this flight. \nYou have been added to waiting list, and will be notified if there are any changes.</h2>");
+                    out.println("<h2>There are currently no available seats for this flight. \nYou have been added to waiting list, and will be notified if there are any changes. \n Your waiting list ticket number is " + ticketNumber + "</h2>");
                 }
             } catch (Exception e) {
-                out.println("Error: " + e.getMessage() + "\n\n" + generatedKeys + "\n\n" + totalFare);
+                out.println("Error: " + e.getMessage() + "\n\n" + generatedKeys + "\n\n" + totalFare + "classTypeParsed");
             } finally {
                 if (rs != null) try { rs.close(); } catch (SQLException e) {}
                 if (con != null) try { con.close(); } catch (SQLException e) {}

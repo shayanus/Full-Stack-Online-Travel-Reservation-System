@@ -40,34 +40,40 @@
     	<input type="checkbox" id="isFlexible" name="isFlexible">
 		
 	<h2>Sorting Options</h2>
-		<div>
-		    
-			<label for="priceSort">Sort by Pricing:</label>
-			<input type="checkbox" id="priceSortCheckbox" name="priceSortCheckbox">
-			<select id="priceSort" name="priceSort">
-				<option value="sortedByEconomy">Economy Price</option>
-				<option value="sortedByBusiness">Business Price</option>
-				<option value="sortedByFirstClas">First Class Price</option>
-			</select>
-		</div>
+
+		<input type="radio" name="sortOption" value="none" checked> None
+
+		<fieldset>
+			<legend>Sort by Pricing:</legend>
+
+			<input type="radio" id="sortedByEconomy" name="sortOption" value="sortedByEconomy">
+			<label for="sortedByEconomy">Economy Price</label>
+
+			<input type="radio" id="sortedByBusiness" name="sortOption" value="sortedByBusiness">
+			<label for="sortedByBusiness">Business Price</label>
+
+			<input type="radio" id="sortedByFirstClass" name="sortOption" value="sortedByFirstClass">
+			<label for="sortedByFirstClass">First Class Price</label>
+
+		</fieldset>
 	
-        <label for="sortDuration">Sort by Duration:</label>
-		<input type="checkbox" id="sortDuration" name="sortDuration">
+			<input type="radio" id="sortedByDuration" name="sortOption" value="sortedByDuration">
+			<label for="sortedByDuration">Sort by Duration</label>
 		<br>
-		<label for="sortTakeoffTime">Sort by Takeoff Time:</label>
-		<input type="checkbox" id="sortTakeoffTime" name="sortTakeoffTime">
+			<input type="radio" id="sortedByTakeoff" name="sortOption" value="sortedByTakeoff">
+			<label for="sortedByTakeoff">Sort by Takeoff Time</label>
 		<br>
-		<label for="sortLandingTime">Sort by Landing Time:</label>
-		<input type="checkbox" id="sortLandingTime" name="sortLandingTime">
+			<input type="radio" id="sortedByArrival" name="sortOption" value="sortedByArrival">
+			<label for="sortedByArrival">Sort by Arrival Time</label>
 		<br>
-        <label for="sortOrder">Sort Order:</label>
+        	<label for="sortOrder">Sort Order:</label>
         
         <select id="sortOrder" name="sortOrder">
             <option value="asc">Ascending</option>
             <option value="desc">Descending</option>
         </select>
         <br>
-      <h2>Filter Options</h2>
+    <h2>Filter Options</h2>
         <label for="numStops">Number of Stops:</label>
     	<input type="text" id="numStops" name="numStops">
     	<br>

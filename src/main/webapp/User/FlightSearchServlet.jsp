@@ -28,36 +28,56 @@ pageEncoding="ISO-8859-1" import="com.cs336.pkg.*"%>
             <th>Number of Stops</th>
             <th>Flight Type</th>
             <th>Duration</th>
+            <th>Book Flight</th>
         </tr>
 
     <%
         String startAirport = request.getParameter("startAirport");
         String endAirport = request.getParameter("endAirport");
-        boolean roundTrip = "on".equals(request.getParameter("roundTripCheckbox"));
+        boolean roundTrip = request.getParameter("flightType").equals("roundTrip");
+        //out.println("test: " + "roundTrip".equals(request.getParameter("flightType")));
         String departureDate = request.getParameter("departureDate");
         String returnDate = request.getParameter("returnDate");
         boolean isFlexible = "on".equals(request.getParameter("isFlexible"));
         boolean sortedByEconomy = false;
         boolean sortedByBusiness = false;
         boolean sortedByFirstClass = false;
+        boolean sortedByDuration = false;
+        boolean sortedByTakeoff = false;
+        boolean sortedByArrival = false;
         String sortOrder = request.getParameter("sortOrder");
         String sortOrderText = sortOrder.equalsIgnoreCase("asc") ? "ascending" : sortOrder.equalsIgnoreCase("desc") ? "descending" : "unknown";
-        
+        String sortOption = request.getParameter("sortOption");
+        String sortOptionText = sortOption.length() > 8? sortOption.substring(8) : "None";
 
-        if ("on".equals(request.getParameter("priceSortCheckbox"))) {
-            String priceSortValue = request.getParameter("priceSort");
-            
-            if ("sortedByEconomy".equals(priceSortValue)) {
-                sortedByEconomy = true;
-                out.println("Sorted by " + sortOrderText + " economy price");
-            } else if ("sortedByBusiness".equals(priceSortValue)) {
-                sortedByBusiness = true;
-                out.println("Sorted by " + sortOrderText + " business pricing");
-            } else if ("sortedByFirstClass".equals(priceSortValue)) {
-                sortedByFirstClass = true;
-                out.println("Sorted by " + sortOrderText + " first class pricing");
-            }
+
+        String priceSortValue = request.getParameter("priceSort");
+        
+        if (sortOption.equals("sortedByEconomy")) {
+            sortedByEconomy = true;
+            out.println("<h2>Sorted by economy pricing in " + sortOrderText + " order</h2>");
+        } 
+        else if (sortOption.equals("sortedByBusiness")) {
+            sortedByBusiness = true;
+            out.println("<h2>Sorted by business pricing in " + sortOrderText + " order</h2>");
+        } 
+        else if (sortOption.equals("sortedByFirstClass")) {
+            sortedByFirstClass = true;
+            out.println("<h2>Sorted by first class pricing in " + sortOrderText + " order</h2>");
+        } 
+        else if (sortOption.equals("sortedByDuration")) {
+            sortedByDuration = true;
+            out.println("<h2>Sorted by duration time in " + sortOrderText + " order</h2>");
+        } 
+        else if (sortOption.equals("sortedByTakeoff")) {
+            sortedByTakeoff = true;
+            out.println("<h2>Sorted by takeoff time in " + sortOrderText + " order</h2>");
+        } 
+        else if (sortOption.equals("sortedByArrival")) {
+            sortedByArrival = true;
+            out.println("<h2>Sorted by arrival time in " + sortOrderText + " order</h2>");
         }
+        
 
         PreparedStatement preparedStatement = null; 
 
@@ -96,17 +116,18 @@ pageEncoding="ISO-8859-1" import="com.cs336.pkg.*"%>
                 if (request.getParameter("landingTime") != null && !request.getParameter("landingTime").isEmpty()) {
                     query += "AND arrival_times <= ? ";
                 }
+
                 if (sortedByEconomy) {
                     query += "ORDER BY economy_fare " + sortOrder;
                 } else if (sortedByBusiness) {
                     query += "ORDER BY business_fare " + sortOrder;
                 } else if (sortedByFirstClass) {
                     query += "ORDER BY first_class_fare " + sortOrder;
-                } else if (request.getParameter("sortDuration") != null) {
+                } else if (sortedByDuration) {
                     query += "ORDER BY duration " + sortOrder;
-                } else if (request.getParameter("sortTakeoffTime") != null) {
+                } else if (sortedByTakeoff) {
                     query += "ORDER BY departureTime " + sortOrder;
-                } else if (request.getParameter("sortLandingTime") != null) {
+                } else if (sortedByArrival) {
                     query += "ORDER BY arrival_times " + sortOrder;
                 }
 
@@ -182,11 +203,11 @@ pageEncoding="ISO-8859-1" import="com.cs336.pkg.*"%>
                     query += "ORDER BY business_fare " + sortOrder;
                 } else if (sortedByFirstClass) {
                     query += "ORDER BY first_class_fare " + sortOrder;
-                } else if (request.getParameter("sortDuration") != null) {
+                } else if (sortedByDuration) {
                     query += "ORDER BY duration " + sortOrder;
-                } else if (request.getParameter("sortTakeoffTime") != null) {
+                } else if (sortedByTakeoff) {
                     query += "ORDER BY departureTime " + sortOrder;
-                } else if (request.getParameter("sortLandingTime") != null) {
+                } else if (sortedByArrival) {
                     query += "ORDER BY arrival_times " + sortOrder;
                 }
 

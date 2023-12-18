@@ -99,14 +99,14 @@
                 }
 
                 if (!isFlightFull) {
-                    String insertFlight = "INSERT INTO ticketflightassociatedwith (TicketNumber, flightNumber, fromAirport, toAirport, departureDate, departureTime) VALUES (?, ?, ?, ?, ?, ?)";
+                    String insertFlight = "INSERT INTO ticketflightassociatedwith (flightNumber, fromAirport, toAirport, departureDate, departureTime) VALUES (?, ?, ?, ?, ?, ?)";
                     pstmt = con.prepareStatement(insertFlight);
-                    pstmt.setString(1, ticketNumber);
-                    pstmt.setString(2, flightNumber);
-                    pstmt.setString(3, fromAirport);
-                    pstmt.setString(4, toAirport);
-                    pstmt.setString(5, departureDate);
-                    pstmt.setString(6, departureTime);
+                    //pstmt.setString(1, ticketNumber);
+                    pstmt.setString(1, flightNumber);
+                    pstmt.setString(2, fromAirport);
+                    pstmt.setString(3, toAirport);
+                    pstmt.setString(4, departureDate);
+                    pstmt.setString(5, departureTime);
                     pstmt.executeUpdate();
 
                     out.println("<h2>Flight Booking Confirmed</h2>");
