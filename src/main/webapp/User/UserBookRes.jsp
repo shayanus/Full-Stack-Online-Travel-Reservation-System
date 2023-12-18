@@ -26,6 +26,7 @@
             String seatNumber = request.getParameter("seatNumber");
             double totalFare = 20.5;
             String classType = request.getParameter("classType");
+            String classTypeParsed = classType.equalsIgnoreCase("economy") ? "Economy" : classType.equalsIgnoreCase("business") ? "Business" : classType.equalsIgnoreCase("first_class") ? "First Class" : classType;
             
             String firstName = request.getParameter("firstName");
             String lastName = request.getParameter("lastName");
@@ -44,9 +45,21 @@
 
 
             try {
-                String insertTicket = "INSERT INTO ticket VALUES (NULL, NULL, ?, CURRENT_TIMESTAMP, ?, ?, ?)";
-                PreparedStatement pstmt = con.prepareStatement(insertTicket, Statement.RETURN_GENERATED_KEYS);
 
+                String fareQuery = "SELECT " + classType + "_fare FROM travelsystem.flightservices WHERE fromAirport = ? AND toAirport = ? AND flightNumber = ? AND departureDate = ?";
+                PreparedStatement pstmt = con.prepareStatement(fareQuery, Statement.RETURN_GENERATED_KEYS);
+
+                pstmt.setString(1, fromAirport);
+                pstmt.setString(2, toAirport);
+                pstmt.setString(3, flightNumber);
+                pstmt.setString(4, departureDate);
+                rs = pstmt.executeQuery();
+                if (rs.next()) {
+                    totalFare = rs.getInt(1);
+                }
+
+                String insertTicket = "INSERT INTO ticket VALUES (NULL, NULL, ?, CURRENT_TIMESTAMP, ?, ?, ?)";
+                pstmt = con.prepareStatement(insertTicket, Statement.RETURN_GENERATED_KEYS);
                 pstmt.setDouble(1, totalFare);
                 pstmt.setString(2, firstName);
                 pstmt.setString(3, lastName);
@@ -79,7 +92,7 @@
                     pstmt.setString(5, departureDate);
                     pstmt.executeUpdate();
 
-                    out.println("<h2>Flight Booking Confirmed, ticket number is " + ticketNumber + "</h2>");
+                    out.println("<h2>Flight Booking Confirmed, ticket number is " + ticketNumber + " and the fare is $" + totalFare + "</h2>");
                 } else {
                     String insertWaitingList = "INSERT INTO waitinglist (accountID, TicketNumber) VALUES (?, ?)";
                     pstmt = con.prepareStatement(insertWaitingList);
@@ -88,7 +101,7 @@
                     out.println("<h2>There are currently no available seats for this flight. \nYou have been added to waiting list, and will be notified if there are any changes.</h2>");
                 }
             } catch (Exception e) {
-                out.println("Error: " + e.getMessage() + "\n\n" + generatedKeys);
+                out.println("Error: " + e.getMessage() + "\n\n" + generatedKeys + "\n\n" + totalFare);
             } finally {
                 if (rs != null) try { rs.close(); } catch (SQLException e) {}
                 if (con != null) try { con.close(); } catch (SQLException e) {}
@@ -132,7 +145,7 @@
             <select id="classType" name="classType">
                 <option value="economy">Economy</option>
                 <option value="business">Business</option>
-                <option value="firstClass">First Class</option>
+                <option value="first_class">First Class</option>
             </select><br>
 
             <!-- You can add more fields here if necessary -->
