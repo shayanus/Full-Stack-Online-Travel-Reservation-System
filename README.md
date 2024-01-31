@@ -1,4 +1,5 @@
 Online Travel Reservation System
+
 Overview
 This project, developed as a part of CS 336 - Principles of Information and Data Management (Fall 2023), is an online travel reservation system. It's designed to enable customers to browse, search, and make flight reservations over the web. The system allows for both domestic and international flight reservations and includes functionalities like querying available flights, making reservations, and viewing flight histories.
 
