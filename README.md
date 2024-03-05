@@ -11,10 +11,10 @@ This project, developed as a part of CS 336 - Principles of Information and Data
 - **Customer Representative Functionality**: They can make and edit reservations, respond to queries, and manage flight and airport data.
 
 ## Technologies Used
-- **Frontend**: HTML
+- **Frontend**: JSP / HTML
 - **Database**: MySQL
 - **Backend**: Java JDBC for connectivity between the user interface and the database server.
-- **Server**: Local web server hosting (Tomcat).
+- **Server**: Local web server hosting (Apache Tomcat).
 
 ## Team
 - Shayan Rahmahtullah
